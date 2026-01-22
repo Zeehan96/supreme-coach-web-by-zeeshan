@@ -29,7 +29,6 @@ const FaqSection = () => {
                       aria-expanded="false"
                       role="button"
                       tabIndex={0}
-                      fdprocessedid="pasgb"
                     >
                       <div className="accordian-icon-wrap">
                         <div className="faq-bg-gradient orange-gradient" />
@@ -108,7 +107,6 @@ const FaqSection = () => {
                       aria-expanded="false"
                       role="button"
                       tabIndex={0}
-                      fdprocessedid="bmh9m"
                     >
                       <div className="accordian-icon-wrap">
                         <div className="faq-bg-gradient orange-gradient" />
@@ -174,7 +172,6 @@ const FaqSection = () => {
                       aria-expanded="false"
                       role="button"
                       tabIndex={0}
-                      fdprocessedid="zb7m3d"
                     >
                       <div className="accordian-icon-wrap">
                         <div className="faq-bg-gradient orange-gradient" />
@@ -245,7 +242,6 @@ const FaqSection = () => {
                       aria-expanded="false"
                       role="button"
                       tabIndex={0}
-                      fdprocessedid="0lbot"
                     >
                       <div className="accordian-icon-wrap">
                         <div className="faq-bg-gradient orange-gradient" />
@@ -309,7 +305,6 @@ const FaqSection = () => {
                       aria-expanded="false"
                       role="button"
                       tabIndex={0}
-                      fdprocessedid="0srjbi"
                     >
                       <div className="accordian-icon-wrap">
                         <div className="faq-bg-gradient orange-gradient" />
@@ -376,7 +371,6 @@ const FaqSection = () => {
                       aria-expanded="false"
                       role="button"
                       tabIndex={0}
-                      fdprocessedid="gnn8g"
                     >
                       <div className="accordian-icon-wrap">
                         <div className="faq-bg-gradient orange-gradient" />
@@ -444,7 +438,6 @@ const FaqSection = () => {
                       aria-expanded="false"
                       role="button"
                       tabIndex={0}
-                      fdprocessedid="vbyws"
                     >
                       <div className="accordian-icon-wrap">
                         <div className="faq-bg-gradient orange-gradient" />
@@ -517,7 +510,6 @@ const FaqSection = () => {
                       aria-expanded="false"
                       role="button"
                       tabIndex={0}
-                      fdprocessedid="0kam6h"
                     >
                       <div className="accordian-icon-wrap">
                         <div className="faq-bg-gradient orange-gradient" />
