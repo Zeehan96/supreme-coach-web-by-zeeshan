@@ -1,0 +1,346 @@
+/* ============================================
+   RESPONSIVE HEADER STYLES
+   ============================================ */
+
+/* Mobile Menu Toggle Button */
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 1001;
+  position: relative;
+}
+
+/* Hamburger Icon */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 28px;
+  height: 24px;
+  position: relative;
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: currentColor;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+/* Hamburger Active State (X icon) */
+.hamburger.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Dropdown Chevron Button */
+.dropdown-chevron-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+}
+
+.dropdown-chevron-btn:hover {
+  opacity: 0.7;
+}
+
+/* ============================================
+   TABLET & MOBILE RESPONSIVE STYLES
+   ============================================ */
+
+@media screen and (max-width: 991px) {
+  /* Show mobile menu toggle */
+  .mobile-menu-toggle {
+    display: block;
+  }
+
+  /* Hide desktop logo in mobile */
+  .navbar_logo-desktop {
+    display: none !important;
+  }
+
+  /* Mobile Navigation Menu */
+  .navbar_menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 85%;
+    max-width: 400px;
+    height: 100vh;
+    background: #ffffff;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease;
+    overflow-y: auto;
+    z-index: 1000;
+    padding: 80px 20px 20px;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .navbar_menu.mobile-open {
+    right: 0;
+  }
+
+  /* Navigation blocks stacking */
+  .navbar_links-block {
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+  }
+
+  .navbar_links-block.first {
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 20px;
+  }
+
+  .navbar_links-block.end {
+    gap: 15px;
+  }
+
+  /* Nav links wrapper */
+  .nav-links-wrapper {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  /* Nav dividers */
+  .nav-divider {
+    display: none;
+  }
+
+  /* Navbar links */
+  .navbar-link {
+    padding: 12px 16px;
+    display: block;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+  }
+
+  .navbar-link:hover {
+    background-color: #f3f4f6;
+  }
+
+  /* Dropdown menus */
+  .custom-brands-dropdown-wrapper,
+  .navbar_menu-dropdown {
+    width: 100%;
+  }
+
+  .custom-brands-toggle,
+  .navdrop-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    border-radius: 8px;
+    background-color: #f9fafb;
+    cursor: pointer;
+  }
+
+  .navbar_menu-link {
+    flex: 1;
+  }
+
+  /* Mega menu adjustments for mobile */
+  .custom-brands-menu,
+  .nav_drop-list {
+    position: static !important;
+    width: 100% !important;
+    box-shadow: none !important;
+    border: none !important;
+    margin-top: 10px;
+    padding: 0;
+    background: transparent !important;
+  }
+
+  .nav_mega-list-wrapper {
+    flex-direction: column;
+    gap: 20px;
+    padding: 0;
+  }
+
+  .nav_mega-left {
+    width: 100%;
+  }
+
+  .nav_mega-img-wrapper {
+    display: none;
+  }
+
+  .nav_mega-links {
+    gap: 10px;
+  }
+
+  .nav_mega-link {
+    padding: 12px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+  }
+
+  .nav_mega-link:hover {
+    background-color: #f9fafb;
+  }
+
+  .mega_nav-bottom {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #e5e7eb;
+  }
+
+  /* Products dropdown columns */
+  .nav_mega-col {
+    width: 100%;
+  }
+
+  /* Buttons */
+  .button-light,
+  .button-dark {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 20px;
+  }
+
+  /* Nav component adjustments */
+  .nav_component {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+  }
+
+  /* Mobile logo */
+  .navbar_logo-mob {
+    display: block !important;
+    z-index: 1001;
+  }
+}
+
+/* ============================================
+   SMALL MOBILE DEVICES
+   ============================================ */
+
+@media screen and (max-width: 480px) {
+  .navbar_menu {
+    width: 90%;
+    max-width: none;
+    padding: 70px 15px 15px;
+  }
+
+  .nav_mega-link {
+    padding: 10px;
+  }
+
+  .text-size-small {
+    font-size: 13px;
+  }
+
+  .button-light,
+  .button-dark {
+    font-size: 14px;
+    padding: 10px 16px;
+  }
+}
+
+/* ============================================
+   DESKTOP STYLES
+   ============================================ */
+
+@media screen and (min-width: 992px) {
+  /* Hide mobile logo on desktop */
+  .navbar_logo-mob {
+    display: none !important;
+  }
+
+  /* Show desktop logo */
+  .navbar_logo-desktop {
+    display: flex !important;
+  }
+
+  /* Ensure dropdowns work on hover */
+  .custom-brands-dropdown-wrapper:hover .custom-brands-menu,
+  .navbar_menu-dropdown:hover .nav_drop-list {
+    display: block;
+  }
+
+  /* Position mega menus */
+  .custom-brands-menu,
+  .nav_drop-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 10px;
+  }
+}
+
+/* ============================================
+   OVERLAY FOR MOBILE MENU
+   ============================================ */
+
+@media screen and (max-width: 991px) {
+  /* Add overlay when mobile menu is open */
+  .navbar_menu.mobile-open::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+    animation: fadeIn 0.3s ease;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY IMPROVEMENTS
+   ============================================ */
+
+/* Focus states for keyboard navigation */
+.mobile-menu-toggle:focus,
+.dropdown-chevron-btn:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Ensure touch targets are large enough */
+@media (hover: none) and (pointer: coarse) {
+  .navbar-link,
+  .nav_mega-link,
+  .button-light,
+  .button-dark {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+}
