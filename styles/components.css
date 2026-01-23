@@ -720,6 +720,19 @@ input[type="file"]:focus-visible {
   transform: translateY(10px);
   transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
   pointer-events: none;
+  max-height: 85vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+/* Hide scrollbar but keep scrolling functionality */
+.nav_drop-list::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
 }
 
 .navbar_menu-dropdown:hover .nav_drop-list,
