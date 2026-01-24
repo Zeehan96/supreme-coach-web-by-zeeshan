@@ -12513,12 +12513,13 @@ figcaption {
   padding: 0.5rem 0.75rem;
   font-size: 0.95rem;
   line-height: 1.3;
+  background-color: transparent;
   transition: background-color;
   display: flex;
 }
 
 .navdrop-toggle.w--open {
-  background-color: #f7f5ee;
+  background-color: transparent;
 }
 
 .navbar_logo-mob {
@@ -13257,6 +13258,7 @@ figcaption {
   overflow: hidden;
 }
 
+
 .bento_graphic.ai-search {
   grid-column-gap: 1.5rem;
   grid-row-gap: 1.5rem;
@@ -13431,6 +13433,10 @@ figcaption {
   padding: 2rem;
   display: flex;
   overflow: hidden;
+}
+
+.auto_payments .bento_graphic {
+  background: var(--iteration-green, linear-gradient(180deg, #6CE49A 0%, #58DF8C 100%));
 }
 
 .bento_bottom {
@@ -15796,19 +15802,21 @@ figcaption {
     0 0 24px -12px #191a1a0d, 0 0 48px -24px #191a1a0d;
 }
 
-.perf-eng.cpc {
+/* .perf-eng.cpc {
   grid-column-gap: 0.2rem;
   grid-row-gap: 0.2rem;
   width: 3.5rem;
   line-height: 1.3;
-  top: 0.75rem;
+  top: 1rem;
   bottom: auto;
-  left: -2.4375rem;
-}
+  left: 1rem;
+} */
 
 .perf-eng.outreach-eng {
-  bottom: -0.875rem;
-  left: -4.125rem;
+  bottom: 1rem;
+  left: 1rem;
+  right: auto;
+  top: auto;
 }
 
 .perf-eng.cpm {
@@ -15817,11 +15825,17 @@ figcaption {
   grid-row-gap: 0.2rem;
   width: 3.5rem;
   line-height: 1.3;
-  inset: auto -2rem 1.8125rem auto;
+  top: auto;
+  bottom: 1rem;
+  right: 1rem;
+  left: auto;
 }
 
 .perf-eng.ctr {
-  inset: -1rem -3.5rem auto auto;
+  top: 1rem;
+  right: 1rem;
+  bottom: auto;
+  left: auto;
 }
 
 .perf-eng.performance-score {
@@ -16169,6 +16183,7 @@ figcaption {
   width: 100%;
   padding: 0.75rem 0.5rem;
   text-decoration: none;
+  background-color: transparent;
   transition: border-color 0.2s, background-color 0.2s;
   display: flex;
   position: relative;
@@ -21471,7 +21486,6 @@ figcaption {
   left: 102%;
   transform: translateY(50%);
 }
-
 .tool-tip-icon {
   color: #3d3d3c;
   flex-direction: column;
@@ -31476,3 +31490,11 @@ figcaption {
     box-shadow: inset 1px 0 #191a1a;
 }
 
+.heading-style-h3-v2 {
+    letter-spacing: -.6px;
+    margin-bottom: 0;
+    font-family: new-kansas, sans-serif;
+    font-size: 3rem;
+    font-weight: 500;
+    line-height: 115%;
+}

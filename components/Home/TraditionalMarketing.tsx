@@ -44,6 +44,14 @@ import {
   Code,
   Users,
   Hash,
+  Megaphone,
+  Target,
+  TrendingUp,
+  BarChart3,
+  Globe,
+  Award,
+  Radio,
+  Newspaper,
 } from "lucide-react";
 
 const TraditionalMarketing = () => {
@@ -62,6 +70,17 @@ const TraditionalMarketing = () => {
             </div>
 
             <div className="features-grid">
+
+              {/* Top Row - Marketing Features */}
+              <div className="feature-item"><div className="icon-wrapper"><Megaphone size={24} strokeWidth={1.5} /></div><span className="feature-name">Advertising</span></div>
+              <div className="feature-item"><div className="icon-wrapper"><Target size={24} strokeWidth={1.5} /></div><span className="feature-name">Targeting</span></div>
+              <div className="feature-item"><div className="icon-wrapper"><TrendingUp size={24} strokeWidth={1.5} /></div><span className="feature-name">Growth</span></div>
+              <div className="feature-item"><div className="icon-wrapper"><BarChart3 size={24} strokeWidth={1.5} /></div><span className="feature-name">Analytics</span></div>
+              <div className="feature-item"><div className="icon-wrapper"><Globe size={24} strokeWidth={1.5} /></div><span className="feature-name">Reach</span></div>
+              <div className="feature-item"><div className="icon-wrapper"><Award size={24} strokeWidth={1.5} /></div><span className="feature-name">Success</span></div>
+              <div className="feature-item"><div className="icon-wrapper"><Radio size={24} strokeWidth={1.5} /></div><span className="feature-name">Broadcast</span></div>
+              <div className="feature-item"><div className="icon-wrapper"><Newspaper size={24} strokeWidth={1.5} /></div><span className="feature-name">Media</span></div>
+              <div className="feature-item"><div className="icon-wrapper"><Network size={24} strokeWidth={1.5} /></div><span className="feature-name">Network</span></div>
 
               {/* Row 1 Left */}
               <div className="feature-item"><div className="icon-wrapper"><Bell size={24} strokeWidth={1.5} /></div><span className="feature-name">Reminders</span></div>

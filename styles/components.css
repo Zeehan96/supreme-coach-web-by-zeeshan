@@ -762,6 +762,7 @@ input[type="file"]:focus-visible {
   gap: 4px;
   cursor: pointer;
   padding: 8px 12px;
+  background: transparent;
 }
 
 .navbar_menu-dropdown:hover .navdrop-toggle,
@@ -809,6 +810,7 @@ input[type="file"]:focus-visible {
   border-radius: 8px;
   text-decoration: none;
   color: inherit;
+  background: transparent;
   transition: background 0.2s ease;
 }
 
