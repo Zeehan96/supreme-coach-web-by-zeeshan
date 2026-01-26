@@ -5,7 +5,15 @@
   font-family: Nunito Sans, sans-serif;
   
 }
-
+h1 {
+  letter-spacing: -1.14px;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: "new-kansas", sans-serif !important;
+  font-size: 6rem;
+  font-weight: 500;
+  line-height: 105%;
+}
 body {
   margin: 0;
 }
@@ -203,6 +211,71 @@ table {
 td,
 th {
   padding: 0;
+}
+
+/* New Kansas Font Face Declarations */
+@font-face {
+  font-family: "new-kansas";
+  src: url("/fonts/New Kansas Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "new-kansas";
+  src: url("/fonts/New Kansas Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "new-kansas";
+  src: url("/fonts/New Kansas SemiBold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "new-kansas";
+  src: url("/fonts/New Kansas Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "new-kansas";
+  src: url("/fonts/New Kansas Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "new-kansas";
+  src: url("/fonts/New Kansas Thin.otf") format("opentype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "new-kansas";
+  src: url("/fonts/New Kansas Heavy.otf") format("opentype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "new-kansas";
+  src: url("/fonts/New Kansas Black.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -432,6 +505,7 @@ h1 {
   margin-top: 20px;
   font-size: 38px;
   line-height: 44px;
+  font-family: "new-kansas", sans-serif !important;
 }
 
 h2 {
@@ -2889,7 +2963,7 @@ h1 {
   letter-spacing: -1.14px;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: new-kansas, sans-serif;
+  font-family: "new-kansas", sans-serif !important;
   font-size: 6rem;
   font-weight: 500;
   line-height: 105%;
@@ -4076,7 +4150,7 @@ figcaption {
 
 .heading-style-h2 {
   font-size: 4rem;
-  font-weight: 500;
+  font-weight: 700;
   line-height: 115%;
 }
 
@@ -11988,6 +12062,13 @@ figcaption {
   color: var(--stone);
 }
 
+.section_hero h1,
+.section_hero .heading-style-h2,
+.section_hero .heading-style-h2-v2,
+.section_hero .heading-style-h1 {
+  font-weight: 600 !important;
+}
+
 .section_hero {
   background-image: linear-gradient(#f5f3ea00, #f5f3ea);
   border-radius: 6px;
@@ -12084,6 +12165,11 @@ figcaption {
   align-items: center;
   max-width: 46rem;
   display: flex;
+}
+
+.hero_texts-heading-side h1,
+.hero_texts-heading-side .heading-style-h2-v2 {
+  font-weight: 600 !important;
 }
 
 .meta-text {
@@ -12570,10 +12656,13 @@ figcaption {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 8.3125rem;
+  width: auto;
+  min-width: 8.3125rem;
+  max-width: 12rem;
   height: 2rem;
   transition: transform 0.2s;
   display: flex;
+  overflow: visible;
 }
 
 .sc-logo-svg:hover {
@@ -13555,7 +13644,7 @@ figcaption {
 
 .heading-style-h2-v2 {
   font-size: 3.5rem;
-  font-weight: 500;
+  font-weight: 700;
   line-height: 115%;
 }
 
@@ -25868,6 +25957,7 @@ figcaption {
 
   .heading-style-h2.main-hero-heading {
     font-size: 2.3rem;
+    font-weight: 700;
   }
 
   .fs-styleguide_version {

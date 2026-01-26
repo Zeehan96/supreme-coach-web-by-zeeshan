@@ -194,7 +194,7 @@ function LogoSVG() {
       xmlns="http://www.w3.org/2000/svg"
       width="100%"
       height="100%"
-      viewBox="0 0 133 32"
+      viewBox="0 0 180 32"
       fill="none"
       preserveAspectRatio="xMidYMid meet"
       aria-hidden="true"
@@ -205,7 +205,7 @@ function LogoSVG() {
         y="22"
         fontFamily="new-kansas, Georgia, serif"
         fontSize="18"
-        fontWeight="500"
+        fontWeight="700"
         fill="currentColor"
       >
         Supreme Coach
