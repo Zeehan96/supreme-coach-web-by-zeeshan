@@ -386,48 +386,32 @@ const PricingCardsSection = ({ type = "coach" }: PricingCardsSectionProps) => {
                 marginTop: "2rem",
               }}
             >
-              <button
-                onClick={() => setSelectedType("coach")}
-                style={{
-                  padding: "0.75rem 1.5rem",
-                  fontSize: "1rem",
-                  fontWeight: isCoach ? 700 : 500,
-                  borderRadius: "8px",
-                  border: "1px solid rgba(25, 26, 26, 0.1)",
-                  background: isCoach
-                    ? "linear-gradient(73deg, #fca061, #ffc7a1)"
-                    : "linear-gradient(#fbfbf8, #f7f5ee)",
-                  color: isCoach ? "#191A1A" : "#5d5d5b",
-                  cursor: "pointer",
-                  transition: "all 0.3s",
-                  boxShadow: isCoach
-                    ? "0 2px 2px -1px #191a1a08, 0 4px 4px -2px #191a1a05"
-                    : "0 2px 2px -1px #191a1a08, 0 4px 4px -2px #191a1a05",
-                }}
+              {/* Segmented toggle control */}
+              <div
+                role="tablist"
+                aria-label="Plan type"
+                className={`segmented-toggle ${isCoach ? "is-coach" : "is-firms"}`}
               >
-                Coaching Plan
-              </button>
-              <button
-                onClick={() => setSelectedType("firms")}
-                style={{
-                  padding: "0.75rem 1.5rem",
-                  fontSize: "1rem",
-                  fontWeight: !isCoach ? 700 : 500,
-                  borderRadius: "8px",
-                  border: "1px solid rgba(25, 26, 26, 0.1)",
-                  background: !isCoach
-                    ? "linear-gradient(73deg, #fca061, #ffc7a1)"
-                    : "linear-gradient(#fbfbf8, #f7f5ee)",
-                  color: !isCoach ? "#191A1A" : "#5d5d5b",
-                  cursor: "pointer",
-                  transition: "all 0.3s",
-                  boxShadow: !isCoach
-                    ? "0 2px 2px -1px #191a1a08, 0 4px 4px -2px #191a1a05"
-                    : "0 2px 2px -1px #191a1a08, 0 4px 4px -2px #191a1a05",
-                }}
-              >
-                Firms Plan
-              </button>
+                <div className="segmented-toggle__indicator" aria-hidden />
+
+                <button
+                  role="tab"
+                  aria-pressed={isCoach}
+                  onClick={() => setSelectedType("coach")}
+                  className="segmented-toggle__button"
+                >
+                  Coaching Plan
+                </button>
+
+                <button
+                  role="tab"
+                  aria-pressed={!isCoach}
+                  onClick={() => setSelectedType("firms")}
+                  className="segmented-toggle__button"
+                >
+                  Firms Plan
+                </button>
+              </div>
             </div>
 
             {/* Pricing Cards Grid */}

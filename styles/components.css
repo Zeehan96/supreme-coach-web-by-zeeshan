@@ -159,6 +159,61 @@ input[type="file"]:focus-visible {
   padding: 0;
 }
 
+/* Segmented toggle for Pricing page */
+.segmented-toggle {
+  position: relative;
+  display: inline-flex;
+  background: #f6f6f5;
+  border-radius: 12px;
+  padding: 6px;
+  box-shadow: inset 0 0 0 1px rgba(25, 26, 26, 0.04);
+}
+.segmented-toggle__indicator {
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  /* cover the left half by default including container padding */
+  left: 6px;
+  right: calc(50% + 6px);
+  border-radius: 8px;
+  background: linear-gradient(73deg, #fca061, #ffc7a1);
+  box-shadow: 0 10px 30px rgba(252, 160, 97, 0.12);
+  transition:
+    transform 220ms cubic-bezier(0.2, 0, 0.2, 1),
+    width 220ms ease;
+  transition:
+    left 220ms cubic-bezier(0.2, 0, 0.2, 1),
+    right 220ms cubic-bezier(0.2, 0, 0.2, 1);
+}
+.segmented-toggle.is-firms .segmented-toggle__indicator {
+  /* when firms is active, cover the right half */
+  left: calc(50% + 6px);
+  right: 6px;
+}
+.segmented-toggle__button {
+  position: relative;
+  z-index: 2;
+  background: transparent;
+  border: none;
+  padding: 0.5rem 1.85rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #5d5d5b;
+  border-radius: 8px;
+  cursor: pointer;
+  transition:
+    color 180ms ease,
+    font-weight 180ms ease;
+}
+.segmented-toggle__button[aria-pressed="true"] {
+  color: #191a1a;
+  font-weight: 700;
+}
+.segmented-toggle__button:focus {
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
 .hero_lottie svg {
   border-radius: 6px;
 }
@@ -264,7 +319,9 @@ input[type="file"]:focus-visible {
 }
 
 .navbar_menu {
-  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
   box-shadow: 0px 0px 0px 0px rgba(25, 25, 25, 0);
 }
 
@@ -283,7 +340,8 @@ input[type="file"]:focus-visible {
 
 .nav-element.sticky-active .navbar_menu {
   background: #ffffff;
-  box-shadow: 0px 16px 16px -8px rgba(25, 26, 26, 0.02),
+  box-shadow:
+    0px 16px 16px -8px rgba(25, 26, 26, 0.02),
     0px 8px 8px -4px rgba(25, 26, 26, 0.02),
     0px 4px 4px -2px rgba(25, 26, 26, 0.02),
     0px 2px 2px -1px rgba(25, 26, 26, 0.03),
@@ -606,7 +664,9 @@ input[type="file"]:focus-visible {
   [data-creators-hero="right-bottom"] {
     opacity: 0;
     transform: scale(0.9);
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    transition:
+      opacity 0.5s ease,
+      transform 0.5s ease;
   }
 }
 
@@ -718,7 +778,10 @@ input[type="file"]:focus-visible {
   z-index: 1000;
   padding: 12px;
   transform: translateY(10px);
-  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    visibility 0.2s;
   pointer-events: none;
   max-height: 85vh;
   overflow-y: auto;
@@ -1024,7 +1087,9 @@ input[type="file"]:focus-visible {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
   color: inherit;
   cursor: default;
 }
@@ -1236,7 +1301,9 @@ input[type="file"]:focus-visible {
   width: 2rem;
   height: 2rem;
   color: var(--neutral--300);
-  transition: color 0.2s ease, transform 0.2s ease;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .social-link-item:hover {
