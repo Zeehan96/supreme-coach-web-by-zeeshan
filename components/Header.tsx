@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import {
   ChevronDown,
   ArrowRight,
@@ -216,6 +216,86 @@ function LogoSVG() {
 
 function ForBrandsDropdown() {
   const [isBrandsOpen, setIsBrandsOpen] = useState(false);
+  const brandsWrapperRef = useRef<HTMLDivElement | null>(null);
+  const [brandsAnchorRight, setBrandsAnchorRight] = useState(true);
+  const [brandsTopPx, setBrandsTopPx] = useState<number | null>(null);
+  const [brandsFixedLeft, setBrandsFixedLeft] = useState<number | null>(null);
+  const [brandsFixedRight, setBrandsFixedRight] = useState<number | null>(null);
+  const [brandsDropdownWidth, setBrandsDropdownWidth] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (!isBrandsOpen) return;
+    const el = brandsWrapperRef.current;
+    if (!el || typeof window === "undefined") return;
+
+    const rect = el.getBoundingClientRect();
+    // desired dropdown width consistent with inline style
+    const dropdownWidth = Math.min(1100, Math.floor(window.innerWidth * 0.96));
+    const safety = 8;
+
+    // If the dropdown fits when anchored to the left edge of the wrapper, use left.
+    const fitsLeft = rect.left + dropdownWidth <= window.innerWidth - safety;
+    // If the dropdown fits when anchored to the right edge of the wrapper, use right.
+    const fitsRight = rect.right - dropdownWidth >= safety;
+
+    let chooseRight = true;
+    if (fitsLeft && !fitsRight) {
+      chooseRight = false;
+      setBrandsAnchorRight(false);
+    } else if (!fitsLeft && fitsRight) {
+      chooseRight = true;
+      setBrandsAnchorRight(true);
+    } else if (fitsLeft && fitsRight) {
+      // both fit — prefer left (consistent UX)
+      chooseRight = false;
+      setBrandsAnchorRight(false);
+    } else {
+      // neither fits fully — pick the side with more available space
+      const spaceIfLeft = window.innerWidth - rect.left;
+      const spaceIfRight = rect.right;
+      chooseRight = spaceIfRight > spaceIfLeft;
+      setBrandsAnchorRight(chooseRight);
+    }
+
+    // compute top in viewport px so the dropdown aligns with the bottom of the wrapper
+    setBrandsTopPx(Math.max(0, Math.floor(rect.bottom - 6)));
+    setBrandsDropdownWidth(dropdownWidth);
+
+    if (chooseRight) {
+      setBrandsFixedRight(20);
+      setBrandsFixedLeft(null);
+    } else {
+      setBrandsFixedLeft(Math.max(8, Math.floor(rect.left)));
+      setBrandsFixedRight(null);
+    }
+
+    const onResize = () => {
+      const r = el.getBoundingClientRect();
+      const newDropdownWidth = Math.min(1100, Math.floor(window.innerWidth * 0.96));
+      setBrandsTopPx(Math.max(0, Math.floor(r.bottom - 6)));
+      setBrandsDropdownWidth(newDropdownWidth);
+      const newFitsLeft = r.left + newDropdownWidth <= window.innerWidth - safety;
+      const newFitsRight = r.right - newDropdownWidth >= safety;
+      let newChooseRight = true;
+      if (newFitsLeft && !newFitsRight) newChooseRight = false;
+      else if (!newFitsLeft && newFitsRight) newChooseRight = true;
+      else if (newFitsLeft && newFitsRight) newChooseRight = false;
+      else {
+        const spaceIfLeft = window.innerWidth - r.left;
+        const spaceIfRight = r.right;
+        newChooseRight = spaceIfRight > spaceIfLeft;
+      }
+      if (newChooseRight) {
+        setBrandsFixedRight(20);
+        setBrandsFixedLeft(null);
+      } else {
+        setBrandsFixedLeft(Math.max(8, Math.floor(r.left)));
+        setBrandsFixedRight(null);
+      }
+    };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, [isBrandsOpen]);
 
   return (
     <div
@@ -223,6 +303,8 @@ function ForBrandsDropdown() {
       data-hover="true"
       data-dropdown-trigger="hover"
       className="navbar_menu-dropdown w-dropdown"
+      style={{ position: "relative" }}
+      ref={brandsWrapperRef}
       onMouseEnter={() => setIsBrandsOpen(true)}
       onMouseLeave={() => setIsBrandsOpen(false)}
     >
@@ -249,7 +331,25 @@ function ForBrandsDropdown() {
 
       <nav
         className="nav_drop-list creators w-dropdown-list"
-        style={{ display: isBrandsOpen ? "block" : "none" }}
+        // Keep original display toggle but add a responsive width so the mega menu
+        // doesn't force the page to scroll when it appears on hover.
+        style={{
+          display: isBrandsOpen ? "block" : "none",
+          // use fixed positioning so we can guarantee a viewport margin
+          position: "fixed",
+          top: brandsTopPx != null ? `${brandsTopPx}px` : "100%",
+          // if we computed a pixel width, use it; otherwise fallback to the fluid value
+          width: brandsDropdownWidth != null ? `${brandsDropdownWidth}px` : "min(1100px, 96vw)",
+          minWidth: "720px",
+          boxSizing: "border-box",
+          // ensure overflow inside dropdown is clipped instead of creating page scroll
+          overflow: "hidden",
+          ...(brandsFixedRight != null
+            ? { right: `${brandsFixedRight}px`, left: "auto" }
+            : brandsFixedLeft != null
+            ? { left: `${brandsFixedLeft}px`, right: "auto" }
+            : { right: 20, left: "auto" }),
+        }}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Mobile close button */}
@@ -267,8 +367,11 @@ function ForBrandsDropdown() {
             <X className="w-5 h-5" />
           </button>
         </div>
-        <div className="nav_mega-list-wrapper">
-          <div className="nav_mega-left">
+        <div
+          className="nav_mega-list-wrapper"
+          style={{ display: "flex", gap: 24, alignItems: "stretch" }}
+        >
+          <div className="nav_mega-left" style={{ flex: "1 1 auto" }}>
             <div className="nav_mega-links">
               <a
                 href="/"
@@ -368,7 +471,10 @@ function ForBrandsDropdown() {
             </div>
           </div>
 
-          <div className="nav_mega-img-wrapper">
+          <div
+            className="nav_mega-img-wrapper"
+            style={{ flex: "0 0 420px", minWidth: 420 }}
+          >
             {/* <img src="" alt="" className="nav_mega-img" loading="lazy" /> */}
           </div>
         </div>
@@ -379,6 +485,80 @@ function ForBrandsDropdown() {
 
 function ForCreatorsDropdown() {
   const [isCreatorsOpen, setIsCreatorsOpen] = useState(false);
+  const creatorsWrapperRef = useRef<HTMLDivElement | null>(null);
+  const [creatorsAnchorRight, setCreatorsAnchorRight] = useState(true);
+  const [creatorsTopPx, setCreatorsTopPx] = useState<number | null>(null);
+  const [creatorsFixedLeft, setCreatorsFixedLeft] = useState<number | null>(null);
+  const [creatorsFixedRight, setCreatorsFixedRight] = useState<number | null>(null);
+  const [creatorsDropdownWidth, setCreatorsDropdownWidth] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (!isCreatorsOpen) return;
+    const el = creatorsWrapperRef.current;
+    if (!el || typeof window === "undefined") return;
+
+    const rect = el.getBoundingClientRect();
+    const dropdownWidth = Math.min(1100, Math.floor(window.innerWidth * 0.96));
+    const safety = 8;
+
+    const fitsLeft = rect.left + dropdownWidth <= window.innerWidth - safety;
+    const fitsRight = rect.right - dropdownWidth >= safety;
+
+    let chooseRight = true;
+    if (fitsLeft && !fitsRight) {
+      chooseRight = false;
+      setCreatorsAnchorRight(false);
+    } else if (!fitsLeft && fitsRight) {
+      chooseRight = true;
+      setCreatorsAnchorRight(true);
+    } else if (fitsLeft && fitsRight) {
+      chooseRight = false;
+      setCreatorsAnchorRight(false);
+    } else {
+      const spaceIfLeft = window.innerWidth - rect.left;
+      const spaceIfRight = rect.right;
+      chooseRight = spaceIfRight > spaceIfLeft;
+      setCreatorsAnchorRight(chooseRight);
+    }
+
+    setCreatorsTopPx(Math.max(0, Math.floor(rect.bottom - 6)));
+    setCreatorsDropdownWidth(dropdownWidth);
+
+    if (chooseRight) {
+      setCreatorsFixedRight(20);
+      setCreatorsFixedLeft(null);
+    } else {
+      setCreatorsFixedLeft(Math.max(8, Math.floor(rect.left)));
+      setCreatorsFixedRight(null);
+    }
+
+    const onResize = () => {
+      const r = el.getBoundingClientRect();
+      const newDropdownWidth = Math.min(1100, Math.floor(window.innerWidth * 0.96));
+      setCreatorsTopPx(Math.max(0, Math.floor(r.bottom - 6)));
+      setCreatorsDropdownWidth(newDropdownWidth);
+      const newFitsLeft = r.left + newDropdownWidth <= window.innerWidth - safety;
+      const newFitsRight = r.right - newDropdownWidth >= safety;
+      let newChooseRight = true;
+      if (newFitsLeft && !newFitsRight) newChooseRight = false;
+      else if (!newFitsLeft && newFitsRight) newChooseRight = true;
+      else if (newFitsLeft && newFitsRight) newChooseRight = false;
+      else {
+        const spaceIfLeft = window.innerWidth - r.left;
+        const spaceIfRight = r.right;
+        newChooseRight = spaceIfRight > spaceIfLeft;
+      }
+      if (newChooseRight) {
+        setCreatorsFixedRight(20);
+        setCreatorsFixedLeft(null);
+      } else {
+        setCreatorsFixedLeft(Math.max(8, Math.floor(r.left)));
+        setCreatorsFixedRight(null);
+      }
+    };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, [isCreatorsOpen]);
 
   return (
     <div
@@ -387,6 +567,8 @@ function ForCreatorsDropdown() {
       data-dropdown-trigger="hover"
       data-w-id="285ab8f6-7c53-c0c1-5132-bb8735736386"
       className="navbar_menu-dropdown w-dropdown"
+      style={{ position: "relative" }}
+      ref={creatorsWrapperRef}
       onMouseEnter={() => setIsCreatorsOpen(true)}
       onMouseLeave={() => setIsCreatorsOpen(false)}
     >
@@ -413,7 +595,21 @@ function ForCreatorsDropdown() {
 
       <nav
         className="nav_drop-list creators w-dropdown-list"
-        style={{ display: isCreatorsOpen ? "block" : "none" }}
+        // match the responsive sizing used for the "For Coach" dropdown
+        style={{
+          display: isCreatorsOpen ? "block" : "none",
+          position: "fixed",
+          top: creatorsTopPx != null ? `${creatorsTopPx}px` : "100%",
+          width: creatorsDropdownWidth != null ? `${990}px` : "min(1100px, 96vw)",
+          minWidth: "720px",
+          boxSizing: "border-box",
+          overflow: "hidden",
+          ...(creatorsFixedRight != null
+            ? { right: `${creatorsFixedRight}px`, left: "auto" }
+            : creatorsFixedLeft != null
+            ? { left: `${creatorsFixedLeft}px`, right: "auto" }
+            : { right: 20, left: "auto" }),
+        }}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Mobile close button */}
@@ -431,8 +627,11 @@ function ForCreatorsDropdown() {
             <X className="w-5 h-5" />
           </button>
         </div>
-        <div className="nav_mega-list-wrapper">
-          <div className="nav_mega-left">
+        <div
+          className="nav_mega-list-wrapper"
+          style={{ display: "flex", gap: 24, alignItems: "stretch" }}
+        >
+          <div className="nav_mega-left" style={{ flex: "1 1 auto" }}>
             <div className="nav_mega-links">
               <a
                 href="/creators"
@@ -532,8 +731,10 @@ function ForCreatorsDropdown() {
             </div>
           </div>
 
-          <div className="nav_mega-img-wrapper purple">
-            {/* <img src="" alt="" className="nav_mega-img" loading="lazy" /> */}
+          <div
+            className="nav_mega-img-wrapper purple"
+            style={{ flex: "0 0 530px", minWidth: 350 }}
+          >
           </div>
         </div>
       </nav>

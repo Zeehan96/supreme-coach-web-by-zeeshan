@@ -24,14 +24,9 @@ const HeroBlog = ({ type = "blog" }: HeroBlogProps) => {
                 blog
               </span>
             </h1>
-            <img
-              src="https://cdn.prod.website-files.com/6340255dae4cf91cdda9ff9f/6340255dae4cf951f1aa0103_Blog%20Froot%20Illustration.svg"
-              loading="lazy"
-              alt="Blog froot writing a post"
-              className="blog-header_froot-main"
-            />
-            <div className="blog-header_froots" />
-            <img
+           
+            <div className="" />
+            {/* <img
               src="https://cdn.prod.website-files.com/6340255dae4cf91cdda9ff9f/6340255dae4cf9e67eaa0048_Blog%20Zap.svg"
               loading="lazy"
               alt="Zap illustration"
@@ -54,7 +49,7 @@ const HeroBlog = ({ type = "blog" }: HeroBlogProps) => {
               loading="lazy"
               alt="Blog megaphone illustration"
               className="blog-header_froot-megaphone"
-            />
+            /> */}
           </div>
           <div className="blog-hero_text-section">
             <p className="text-size-large text-align-center">
