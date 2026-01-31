@@ -656,6 +656,205 @@ input[type="file"]:focus-visible {
   );
 }
 
+/* Hero two-column layout: 50-50 content + image */
+.hero_component.hero_component--two-col {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 3rem;
+  align-items: center;
+}
+
+.hero_component.hero_component--two-col .hero_texts-middle,
+.hero_component.hero_component--two-col .hero_texts-middle--left {
+  width: 100%;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.hero_component.hero_component--two-col .hero_texts-heading-side {
+  max-width: none !important;
+  width: 100%;
+}
+
+.hero_component.hero_component--two-col .buttons_hero-outer {
+  max-width: none !important;
+  width: 100%;
+}
+
+.hero_component.hero_component--two-col .hero_image-side,
+.hero_component.hero_component--two-col .HomeHero4o_heroImageWrapper__8DM2b {
+  width: 100%;
+  min-width: 0;
+}
+
+@media (max-width: 991px) {
+  .hero_component.hero_component--two-col {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Hero side image wrapper – clip from right, only visible part shows */
+.HomeHero4o_heroImageWrapper__8DM2b {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  overflow: hidden;
+}
+
+.HomeHero4o_heroImageWrapper__8DM2b picture,
+.HomeHero4o_heroImageWrapper__8DM2b img {
+  inline-size: 920px;
+  max-width: none;
+}
+
+.HomeHero4o_heroImageWrapper__8DM2b picture {
+  display: block;
+}
+
+/* Hero CTA section: button + "Free forever. No credit card." */
+.HomeHero4o_ctaSection__VbhyI {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.HomeHero4o_ctaButton__wrapper {
+  box-sizing: border-box;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  border-radius: 15px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  font-family: inherit;
+  background: var(--neutral--800, #1f2937);
+  transition: background 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.HomeHero4o_ctaButton__wrapper:hover {
+  background: linear-gradient(
+    90deg,
+    #3b82f6 0%,
+    #8b5cf6 30%,
+    #ec4899 60%,
+    #f97316 100%
+  );
+}
+
+/* Rainbow layer (optional glow); inner hides it except as border */
+.HomeHero4o_rainbowHighlight__dEYxe {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  border-radius: 15px;
+  opacity: 0;
+  background: linear-gradient(
+    90deg,
+    #3b82f6 0%,
+    #8b5cf6 25%,
+    #ec4899 50%,
+    #f97316 75%,
+    #eab308 100%
+  );
+  transition: opacity 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.HomeHero4o_ctaButton__wrapper:hover .HomeHero4o_rainbowHighlight__dEYxe {
+  opacity: 1;
+}
+
+/* Workspace builder tabs */
+.HomeHero4o_workspaceBuilderFeatures__xgXJ9 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.HomeHero4o_workspaceBuilderFeature__um7iP {
+  position: relative;
+  padding: 4.33px 12.33px;
+  border: 1px dashed #d9d9d9;
+  border-radius: 54px;
+  color: #646464;
+  font-weight: 600;
+  font-size: 14px;
+  font-family: Inter, sans-serif;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  transition:
+    border-color 0.3s ease,
+    background-color 0.3s ease;
+  background-color: transparent;
+}
+
+.HomeHero4o_workspaceBuilderFeature__um7iP.HomeHero4o_selected__BdTPJ {
+  padding: 3px 26px 3px 11px;
+  border: 2px solid #0091ff;
+  background-color: #edf6fd;
+  color: #0091ff;
+  box-shadow:
+    2px 2px 6px rgba(0, 145, 255, 0.12),
+    0 1px 2px rgba(0, 145, 255, 0.08);
+  animation: HomeHero4o_borderPulse__qF2ma 0.4s ease;
+}
+
+.HomeHero4o_tabCheck__circle {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #0091ff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 1px 3px rgba(0, 145, 255, 0.35);
+}
+
+.HomeHero4o_tabCheck__circle svg {
+  color: #fff;
+}
+
+@keyframes HomeHero4o_borderPulse__qF2ma {
+  from {
+    box-shadow:
+      0 0 0 0 rgba(0, 145, 255, 0.25),
+      2px 2px 6px rgba(0, 145, 255, 0.12),
+      0 1px 2px rgba(0, 145, 255, 0.08);
+  }
+  to {
+    box-shadow:
+      2px 2px 6px rgba(0, 145, 255, 0.12),
+      0 1px 2px rgba(0, 145, 255, 0.08);
+  }
+}
+
+.HomeHero4o_ctaButton__inner {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  background: var(--neutral--800, #1f2937);
+  border-radius: 13px;
+  box-sizing: border-box;
+}
+
 /* Creators hero card animations initial states */
 @media (min-width: 480px) {
   [data-creators-hero="left-top"],
