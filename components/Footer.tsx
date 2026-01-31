@@ -253,7 +253,7 @@ export default function Footer() {
                   <div className="footer_links-column">
                     <div className="footer-title">Legal</div>
                     <div className="footer_links-wrapper">
-                      <Link href="#" className="footer-link">
+                      <Link href="/terms-of-service" className="footer-link">
                         Terms of Service
                       </Link>
                       <Link href="/privacy-policy" className="footer-link">

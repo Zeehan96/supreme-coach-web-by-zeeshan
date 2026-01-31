@@ -151,6 +151,9 @@ export default function Header() {
 
               <div className="navbar_links-block end">
                 <div className="nav-links-wrapper">
+                  <a href="/pricing" className="navbar-link">
+                    Pricing
+                  </a>
                   <a href="/about" className="navbar-link">
                     About
                   </a>
@@ -162,13 +165,7 @@ export default function Header() {
                   </a>
                 </div>
                 <div className="nav-divider" />
-                <a
-                  href="/get-access"
-                  target="_blank"
-                  className="button-light is-small w-inline-block"
-                >
-                  <div>Contact Sales</div>
-                </a>
+                {/* Contact Sales button removed per request */}
                 <a
                   href="/get-access"
                   target="_blank"
@@ -228,9 +225,9 @@ function ForBrandsDropdown() {
     const el = brandsWrapperRef.current;
     if (!el || typeof window === "undefined") return;
 
-    const rect = el.getBoundingClientRect();
-    // desired dropdown width consistent with inline style
-    const dropdownWidth = Math.min(1100, Math.floor(window.innerWidth * 0.96));
+  const rect = el.getBoundingClientRect();
+  // desired dropdown width: reduce the max and make it a bit less wide on smaller viewports
+  const dropdownWidth = Math.min(960, Math.floor(window.innerWidth * 0.9));
     const safety = 8;
 
     // If the dropdown fits when anchored to the left edge of the wrapper, use left.
@@ -271,7 +268,7 @@ function ForBrandsDropdown() {
 
     const onResize = () => {
       const r = el.getBoundingClientRect();
-      const newDropdownWidth = Math.min(1100, Math.floor(window.innerWidth * 0.96));
+  const newDropdownWidth = Math.min(960, Math.floor(window.innerWidth * 0.9));
       setBrandsTopPx(Math.max(0, Math.floor(r.bottom - 6)));
       setBrandsDropdownWidth(newDropdownWidth);
       const newFitsLeft = r.left + newDropdownWidth <= window.innerWidth - safety;
@@ -339,8 +336,8 @@ function ForBrandsDropdown() {
           position: "fixed",
           top: brandsTopPx != null ? `${brandsTopPx}px` : "100%",
           // if we computed a pixel width, use it; otherwise fallback to the fluid value
-          width: brandsDropdownWidth != null ? `${brandsDropdownWidth}px` : "min(1100px, 96vw)",
-          minWidth: "720px",
+            width: brandsDropdownWidth != null ? `${brandsDropdownWidth}px` : "min(960px, 90vw)",
+            minWidth: "560px",
           boxSizing: "border-box",
           // ensure overflow inside dropdown is clipped instead of creating page scroll
           overflow: "hidden",
@@ -371,7 +368,8 @@ function ForBrandsDropdown() {
           className="nav_mega-list-wrapper"
           style={{ display: "flex", gap: 24, alignItems: "stretch" }}
         >
-          <div className="nav_mega-left" style={{ flex: "1 1 auto" }}>
+          {/* constrain left column so right visual panel remains prominent */}
+          <div className="nav_mega-left" style={{ flex: "1 1 auto", maxWidth: 520 }}>
             <div className="nav_mega-links">
               <a
                 href="/"
@@ -456,18 +454,7 @@ function ForBrandsDropdown() {
                   <div className="nav-mega-head">Blog</div>
                 </div>
               </a>
-              <a
-                href="/influencer-pricing-guide"
-                aria-label="nav-link"
-                className="nav_mega-link is-small w-inline-block"
-              >
-                <div className="nav-maga-icon w-embed">
-                  <BookOpen className="w-5 h-5" />
-                </div>
-                <div className="nav_m-link-texts">
-                  <div className="nav-mega-head">Influencer Pricing Guide</div>
-                </div>
-              </a>
+             
             </div>
           </div>
 
@@ -497,8 +484,8 @@ function ForCreatorsDropdown() {
     const el = creatorsWrapperRef.current;
     if (!el || typeof window === "undefined") return;
 
-    const rect = el.getBoundingClientRect();
-    const dropdownWidth = Math.min(1100, Math.floor(window.innerWidth * 0.96));
+  const rect = el.getBoundingClientRect();
+  const dropdownWidth = Math.min(960, Math.floor(window.innerWidth * 0.9));
     const safety = 8;
 
     const fitsLeft = rect.left + dropdownWidth <= window.innerWidth - safety;
@@ -534,7 +521,7 @@ function ForCreatorsDropdown() {
 
     const onResize = () => {
       const r = el.getBoundingClientRect();
-      const newDropdownWidth = Math.min(1100, Math.floor(window.innerWidth * 0.96));
+      const newDropdownWidth = Math.min(960, Math.floor(window.innerWidth * 0.9));
       setCreatorsTopPx(Math.max(0, Math.floor(r.bottom - 6)));
       setCreatorsDropdownWidth(newDropdownWidth);
       const newFitsLeft = r.left + newDropdownWidth <= window.innerWidth - safety;
@@ -600,8 +587,9 @@ function ForCreatorsDropdown() {
           display: isCreatorsOpen ? "block" : "none",
           position: "fixed",
           top: creatorsTopPx != null ? `${creatorsTopPx}px` : "100%",
-          width: creatorsDropdownWidth != null ? `${990}px` : "min(1100px, 96vw)",
-          minWidth: "720px",
+          // use the computed dropdown width (same logic as For Coach)
+          width: creatorsDropdownWidth != null ? `${creatorsDropdownWidth}px` : "min(960px, 90vw)",
+          minWidth: "560px",
           boxSizing: "border-box",
           overflow: "hidden",
           ...(creatorsFixedRight != null
@@ -631,7 +619,8 @@ function ForCreatorsDropdown() {
           className="nav_mega-list-wrapper"
           style={{ display: "flex", gap: 24, alignItems: "stretch" }}
         >
-          <div className="nav_mega-left" style={{ flex: "1 1 auto" }}>
+          {/* constrain left column so right visual panel remains prominent */}
+          <div className="nav_mega-left" style={{ flex: "1 1 auto", maxWidth: 520 }}>
             <div className="nav_mega-links">
               <a
                 href="/creators"
@@ -716,24 +705,13 @@ function ForCreatorsDropdown() {
                   <div className="nav-mega-head">Blog</div>
                 </div>
               </a>
-              <a
-                href="/sponsorship-pricing-guide"
-                aria-label="nav-link"
-                className="nav_mega-link is-small w-inline-block"
-              >
-                <div className="nav-maga-icon w-embed">
-                  <FileCheck className="w-5 h-5" />
-                </div>
-                <div className="nav_m-link-texts">
-                  <div className="nav-mega-head">Sponsorship Pricing Guide</div>
-                </div>
-              </a>
+             
             </div>
           </div>
 
           <div
             className="nav_mega-img-wrapper purple"
-            style={{ flex: "0 0 530px", minWidth: 350 }}
+            style={{ flex: "0 0 420px", minWidth: 420 }}
           >
           </div>
         </div>

@@ -231,71 +231,7 @@ const SectionMainStats = () => {
                   all platforms
                 </h2>
               </div>
-              <div className="main_stats-component">
-                <div className="main_stat-card">
-                  <div className="heading-style-h4 stats">300 Million</div>
-                  <div className="stati-info-text">
-                    <div className="text-size-tiny stat">TARGET AUDIENCE</div>
-                  </div>
-                </div>
-                <div className="main_stat-card">
-                  <div className="heading-style-h4 stats">2 Billion</div>
-                  <div className="stati-info-text">
-                    <div className="text-size-tiny stat">
-                      MONTHLY IMPRESSIONS
-                    </div>
-                  </div>
-                </div>
-                <div
-                  data-w-id="f3707bfc-cfc9-168f-b40c-f6463aa455ff"
-                  className="main_stat-card"
-                >
-                  <div className="heading-style-h4 stats">60%</div>
-                  <div className="stati-info-text">
-                    <div className="text-size-tiny stat">
-                      LOWER CPC THAN LINKEDIN ADS*
-                    </div>
-                  </div>
-                  <div
-                    style={{
-                      opacity: "0",
-                      WebkitTransform:
-                        "translate3d(0, 5px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
-                      MozTransform:
-                        "translate3d(0, 5px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
-                      msTransform:
-                        "translate3d(0, 5px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
-                      transform:
-                        "translate3d(0, 5px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
-                    }}
-                    className="stat-tooltip-wrapper"
-                  >
-                    <div>
-                      In a study of 350 newsletter campaigns launched by
-                      sponsors on Supreme Coach where sponsors achieved an
-                      average $1.71 CPC compared to $5.58 on Linkedin Ads
-                      (Source: DataBox)
-                    </div>
-                    <div className="tool-tip-icon w-embed">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="100%"
-                        height="100%"
-                        viewBox="0 0 10 28"
-                        fill="none"
-                        preserveAspectRatio="xMidYMid meet"
-                        aria-hidden="true"
-                        role="img"
-                      >
-                        <path
-                          d="M9.48346 8.41429C9.48346 7.52339 8.40632 7.07722 7.77635 7.70718L1.70528 13.7782C1.31475 14.1688 1.31475 14.8019 1.70528 15.1925L7.77635 21.2635C8.40632 21.8935 9.48346 21.4473 9.48346 20.5564L9.48346 8.41429Z"
-                          fill="currentColor"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              
 
               {/* Tabs - Static, above slides */}
               <div className="b2b_outer-component">
