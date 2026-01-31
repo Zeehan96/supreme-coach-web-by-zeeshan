@@ -45,20 +45,6 @@ const HeroGuide = () => {
               className="blog-header_froot-megaphone"
             /> */}
           </div>
-          <div className="blog-hero_text-section">
-            <p className="text-size-large text-align-center">
-              Everything you need to know about creators and brand partnerships.
-              From the team powering it.
-            </p>
-            <div className="w-embed">
-              <style
-                dangerouslySetInnerHTML={{
-                  __html:
-                    "\n.guide-card_card-image {\naspect-ratio: 16/9;\n}\n\n",
-                }}
-              />
-            </div>
-          </div>
           <div className="blog-collection_wrapper w-dyn-list">
             <div role="list" className="blog-collection_list w-dyn-items">
               <div

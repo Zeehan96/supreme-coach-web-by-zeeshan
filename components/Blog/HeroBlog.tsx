@@ -18,11 +18,8 @@ const HeroBlog = ({ type = "blog" }: HeroBlogProps) => {
         <div className="container-large">
           <div className="blog-hero_component">
             <h1>
-              Passionfroot{" "}
-              <span className="blog-illustration">
-                <br />
-                blog
-              </span>
+              Supreme Coach{" "}
+             
             </h1>
            
             <div className="" />
@@ -159,7 +156,7 @@ const HeroBlog = ({ type = "blog" }: HeroBlogProps) => {
                         </div>
                       </div>
                       <h2 className="heading-style-h5">
-                        How Munch uses Passionfroot to fuel Creator-Led Growth
+                        How Munch uses Suoreme Coach to fuel Creator-Led Growth
                       </h2>
                     </div>
                     <div className="blog-card_bottom-content">
@@ -211,7 +208,7 @@ const HeroBlog = ({ type = "blog" }: HeroBlogProps) => {
                         </div>
                       </div>
                       <h2 className="heading-style-h5">
-                        How Attio uses Passionfroot to discover creators and
+                        How Attio uses Suoreme Coach to discover creators and
                         fuel product-led growth
                       </h2>
                     </div>

@@ -289,7 +289,8 @@ const TraditionalMarketing = () => {
           padding: 24px 10px;
           min-height: 120px;
           position: relative;
-          transition: all 0.2s;
+          border: 1px solid transparent;
+          transition: border-color 0.25s ease, color 0.2s ease;
         }
 
         .icon-wrapper {
@@ -305,7 +306,7 @@ const TraditionalMarketing = () => {
         
         .feature-item:hover {
            z-index: 5;
-           border: 1px solid #1a1a1a;
+           border-color: #1a1a1a;
            cursor: pointer;
         }
         .feature-item.featured-item:hover {

@@ -1,13 +1,18 @@
 "use client";
 
 import Link from "next/link";
+import FaqSection from "./Payment/FaqSection";
+
+const TEAM_IMAGE_URL =
+  "https://cdn.prod.website-files.com/6340255dae4cf9a2b6a9ffba/6340255dae4cf9fb78aa0163_Jens.avif";
 
 export default function AboutPageContent() {
   return (
     <>
       {/* About Header Section */}
       <section className="section-about-header">
-        <div className="page-padding">
+        <div className="page-padding" 
+        >
           <div className="padding-section-medium is-about">
             <div className="container-large">
               <div className="about-header-component">
@@ -39,30 +44,25 @@ export default function AboutPageContent() {
         </div>
       </section>
 
-      {/* About Story Section */}
-      <section className="section-about-story">
+      {/* About Story Section – orange bg #ff9147 */}
+      <section
+        className="section-about-story section-about-story--orange"
+        style={{ backgroundColor: "#802b00" }}
+      >
         <div className="page-padding">
           <div className="padding-section-medium">
             <div className="container-large">
               <div className="about-story_component">
                 <div className="about-story_title">
                   <div className="margin-bottom margin-medium">
-                    <h2 className="heading-style-h3">
-                      Passionate about{" "}
-                      <span className="about-story_illustration-title is-sustaining">
-                        sustaining
-                      </span>{" "}
-                      the{" "}
-                      <span className="about-story_illustration-title">
-                        spark
-                      </span>{" "}
-                      in every creator and fuelling the growth of the
-                      new-generation of companies
+                    <h2 className="heading-style-h3" style={{ color: "#fff" }}>
+                      Suoreme Coach about sustaining the spark in every creator and
+                      fuelling the growth of the new-generation of companies
                     </h2>
                   </div>
                 </div>
                 <div className="about-story_rich-text">
-                  <div className="text-size-regular w-richtext">
+                  <div className="text-size-regular w-richtext" style={{ color: "#fff" }}>
                     <p>
                       Our mission is to help creators and brands unlock
                       high-quality partnerships and transform the way companies
@@ -111,7 +111,13 @@ export default function AboutPageContent() {
                       data-w-id="team-member-1"
                       className="team-collection_card"
                     >
-                      <div></div>
+                      <div className="team-collection_image-wrap">
+                        <img
+                          src={TEAM_IMAGE_URL}
+                          alt="Jen"
+                          className="team-collection_profile-image"
+                        />
+                      </div>
                       <div className="pill-outer-wrapper">
                         <div className="pill_wrapper is-blue">
                           <div className="text-style-label is-small">
@@ -121,6 +127,7 @@ export default function AboutPageContent() {
                       </div>
                       <div className="team-collection_name-wrapper">
                         <h3 className="heading-style-h5">Jen</h3>
+                        <span className="team-collection_arrow" aria-hidden="true">→</span>
                       </div>
                     </div>
                   </div>
@@ -133,7 +140,13 @@ export default function AboutPageContent() {
                       data-w-id="team-member-2"
                       className="team-collection_card"
                     >
-                      <div></div>
+                      <div className="team-collection_image-wrap">
+                        <img
+                          src={TEAM_IMAGE_URL}
+                          alt="Jens"
+                          className="team-collection_profile-image"
+                        />
+                      </div>
                       <div className="pill-outer-wrapper">
                         <div className="pill_wrapper is-blue">
                           <div className="text-style-label is-small">
@@ -143,6 +156,7 @@ export default function AboutPageContent() {
                       </div>
                       <div className="team-collection_name-wrapper">
                         <h3 className="heading-style-h5">Jens</h3>
+                        <span className="team-collection_arrow" aria-hidden="true">→</span>
                       </div>
                     </div>
                   </div>
@@ -155,7 +169,13 @@ export default function AboutPageContent() {
                       data-w-id="team-member-3"
                       className="team-collection_card"
                     >
-                      <div></div>
+                      <div className="team-collection_image-wrap">
+                        <img
+                          src={TEAM_IMAGE_URL}
+                          alt="Lorenzo"
+                          className="team-collection_profile-image"
+                        />
+                      </div>
                       <div className="pill-outer-wrapper">
                         <div className="pill_wrapper is-blue">
                           <div className="text-style-label is-small">
@@ -165,6 +185,7 @@ export default function AboutPageContent() {
                       </div>
                       <div className="team-collection_name-wrapper">
                         <h3 className="heading-style-h5">Lorenzo</h3>
+                        <span className="team-collection_arrow" aria-hidden="true">→</span>
                       </div>
                     </div>
                   </div>
@@ -177,7 +198,13 @@ export default function AboutPageContent() {
                       data-w-id="team-member-4"
                       className="team-collection_card"
                     >
-                      <div></div>
+                      <div className="team-collection_image-wrap">
+                        <img
+                          src={TEAM_IMAGE_URL}
+                          alt="Filip"
+                          className="team-collection_profile-image"
+                        />
+                      </div>
                       <div className="pill-outer-wrapper">
                         <div className="pill_wrapper is-blue">
                           <div className="text-style-label is-small">CGO</div>
@@ -185,6 +212,7 @@ export default function AboutPageContent() {
                       </div>
                       <div className="team-collection_name-wrapper">
                         <h3 className="heading-style-h5">Filip</h3>
+                        <span className="team-collection_arrow" aria-hidden="true">→</span>
                       </div>
                     </div>
                   </div>
@@ -197,7 +225,13 @@ export default function AboutPageContent() {
                       data-w-id="team-member-5"
                       className="team-collection_card"
                     >
-                      <div></div>
+                      <div className="team-collection_image-wrap">
+                        <img
+                          src={TEAM_IMAGE_URL}
+                          alt="Sarah"
+                          className="team-collection_profile-image"
+                        />
+                      </div>
                       <div className="pill-outer-wrapper">
                         <div className="pill_wrapper is-blue">
                           <div className="text-style-label is-small">
@@ -207,6 +241,7 @@ export default function AboutPageContent() {
                       </div>
                       <div className="team-collection_name-wrapper">
                         <h3 className="heading-style-h5">Sarah</h3>
+                        <span className="team-collection_arrow" aria-hidden="true">→</span>
                       </div>
                     </div>
                   </div>
@@ -219,7 +254,13 @@ export default function AboutPageContent() {
                       data-w-id="team-member-6"
                       className="team-collection_card"
                     >
-                      <div></div>
+                      <div className="team-collection_image-wrap">
+                        <img
+                          src={TEAM_IMAGE_URL}
+                          alt="Alex"
+                          className="team-collection_profile-image"
+                        />
+                      </div>
                       <div className="pill-outer-wrapper">
                         <div className="pill_wrapper is-blue">
                           <div className="text-style-label is-small">
@@ -229,6 +270,7 @@ export default function AboutPageContent() {
                       </div>
                       <div className="team-collection_name-wrapper">
                         <h3 className="heading-style-h5">Alex</h3>
+                        <span className="team-collection_arrow" aria-hidden="true">→</span>
                       </div>
                     </div>
                   </div>
@@ -241,7 +283,13 @@ export default function AboutPageContent() {
                       data-w-id="team-member-7"
                       className="team-collection_card"
                     >
-                      <div></div>
+                      <div className="team-collection_image-wrap">
+                        <img
+                          src={TEAM_IMAGE_URL}
+                          alt="Sumit"
+                          className="team-collection_profile-image"
+                        />
+                      </div>
                       <div className="pill-outer-wrapper">
                         <div className="pill_wrapper is-blue">
                           <div className="text-style-label is-small">
@@ -251,6 +299,7 @@ export default function AboutPageContent() {
                       </div>
                       <div className="team-collection_name-wrapper">
                         <h3 className="heading-style-h5">Sumit</h3>
+                        <span className="team-collection_arrow" aria-hidden="true">→</span>
                       </div>
                     </div>
                   </div>
@@ -263,7 +312,13 @@ export default function AboutPageContent() {
                       data-w-id="team-member-8"
                       className="team-collection_card"
                     >
-                      <div></div>
+                      <div className="team-collection_image-wrap">
+                        <img
+                          src={TEAM_IMAGE_URL}
+                          alt="Leon"
+                          className="team-collection_profile-image"
+                        />
+                      </div>
                       <div className="pill-outer-wrapper">
                         <div className="pill_wrapper is-blue">
                           <div className="text-style-label is-small">
@@ -273,6 +328,7 @@ export default function AboutPageContent() {
                       </div>
                       <div className="team-collection_name-wrapper">
                         <h3 className="heading-style-h5">Leon</h3>
+                        <span className="team-collection_arrow" aria-hidden="true">→</span>
                       </div>
                     </div>
                   </div>
@@ -285,7 +341,13 @@ export default function AboutPageContent() {
                       data-w-id="team-member-9"
                       className="team-collection_card"
                     >
-                      <div></div>
+                      <div className="team-collection_image-wrap">
+                        <img
+                          src={TEAM_IMAGE_URL}
+                          alt="Omar"
+                          className="team-collection_profile-image"
+                        />
+                      </div>
                       <div className="pill-outer-wrapper">
                         <div className="pill_wrapper is-blue">
                           <div className="text-style-label is-small">
@@ -295,6 +357,7 @@ export default function AboutPageContent() {
                       </div>
                       <div className="team-collection_name-wrapper">
                         <h3 className="heading-style-h5">Omar</h3>
+                        <span className="team-collection_arrow" aria-hidden="true">→</span>
                       </div>
                     </div>
                   </div>
@@ -307,7 +370,13 @@ export default function AboutPageContent() {
                       data-w-id="team-member-10"
                       className="team-collection_card"
                     >
-                      <div></div>
+                      <div className="team-collection_image-wrap">
+                        <img
+                          src={TEAM_IMAGE_URL}
+                          alt="Ludwig"
+                          className="team-collection_profile-image"
+                        />
+                      </div>
                       <div className="pill-outer-wrapper">
                         <div className="pill_wrapper is-blue">
                           <div className="text-style-label is-small">
@@ -317,6 +386,7 @@ export default function AboutPageContent() {
                       </div>
                       <div className="team-collection_name-wrapper">
                         <h3 className="heading-style-h5">Ludwig</h3>
+                        <span className="team-collection_arrow" aria-hidden="true">→</span>
                       </div>
                     </div>
                   </div>
@@ -330,12 +400,15 @@ export default function AboutPageContent() {
       {/* Investors Section */}
       <section className="section-about-investors">
         <div className="page-padding">
-          <div className="padding-section-medium padding-top-0">
+          
+        </div>
+        <div className="padding-section-medium padding-top-0"         style={{backgroundColor:"#a8ebff",padding:"20px",paddingBottom:"20px"}}
+          >
             <div className="container-large position-relative">
-              <div className="margin-bottom margin-large">
+              <div className="margin-bottom margin-large" style={{display:"flex",justifyContent:"center",marginBottom:"0px"}}>
                 <div className="investors_text-component">
-                  <div className="investors_title-wrapper">
-                    <h2 className="heading-style-h3">
+                  <div className="investors_title-wrapper" style={{ textAlign: "center", padding: "1.5rem 0" }}>
+                    <h2 className="heading-style-h3" style={{textAlign:"center"}}>
                       Proudly introducing the people backing Supreme Coach.
                     </h2>
                   </div>
@@ -343,7 +416,9 @@ export default function AboutPageContent() {
               </div>
               <div className="w-layout-grid investor-grid">
                 <div className="team-collection_card no-hover is-investors">
-                  <div className="margin-bottom margin-custom2"></div>
+                  <div className="team-collection_image-wrap margin-bottom margin-custom2">
+                    <img src="https://cdn.prod.website-files.com/6340255dae4cf91cdda9ff9f/6716a1ddc5465ea77693ee66_19MF_bCS_400x400.webp" alt="Sabina Wizander" />
+                  </div>
                   <div className="margin-bottom margin-xsmall">
                     <h3 className="heading-style-h5">Sabina Wizander</h3>
                   </div>
@@ -354,7 +429,9 @@ export default function AboutPageContent() {
                   </p>
                 </div>
                 <div className="team-collection_card no-hover is-investors">
-                  <div className="margin-bottom margin-custom2"></div>
+                  <div className="team-collection_image-wrap margin-bottom margin-custom2">
+                    <img src="https://cdn.prod.website-files.com/6340255dae4cf91cdda9ff9f/6716a1ddc5465ea77693ee66_19MF_bCS_400x400.webp" alt="Gina King" />
+                  </div>
                   <div className="margin-bottom margin-xsmall">
                     <h3 className="heading-style-h5">Gina King</h3>
                   </div>
@@ -365,7 +442,9 @@ export default function AboutPageContent() {
                   </p>
                 </div>
                 <div className="team-collection_card no-hover is-investors">
-                  <div className="margin-bottom margin-custom2"></div>
+                  <div className="team-collection_image-wrap margin-bottom margin-custom2">
+                    <img src="https://cdn.prod.website-files.com/6340255dae4cf91cdda9ff9f/6716a1ddc5465ea77693ee66_19MF_bCS_400x400.webp" alt="Ali Abdaal" />
+                  </div>
                   <div className="margin-bottom margin-xsmall">
                     <h3 className="heading-style-h5">Ali Abdaal</h3>
                   </div>
@@ -376,7 +455,9 @@ export default function AboutPageContent() {
                   </p>
                 </div>
                 <div className="team-collection_card no-hover is-investors">
-                  <div className="margin-bottom margin-custom2"></div>
+                  <div className="team-collection_image-wrap margin-bottom margin-custom2">
+                    <img src="https://cdn.prod.website-files.com/6340255dae4cf91cdda9ff9f/6716a1ddc5465ea77693ee66_19MF_bCS_400x400.webp" alt="Kieran Flanagan" />
+                  </div>
                   <div className="margin-bottom margin-xsmall">
                     <h3 className="heading-style-h5">Kieran Flanagan</h3>
                   </div>
@@ -389,184 +470,11 @@ export default function AboutPageContent() {
               </div>
             </div>
           </div>
-        </div>
       </section>
 
-      {/* Newsroom Section */}
-      <section className="section-newsroom-cms">
-        <div className="page-padding">
-          <div className="padding-section-medium">
-            <div className="container-large">
-              <div className="margin-bottom margin-large">
-                <div className="text-align-center">
-                  <h2 className="heading-style-h3">
-                    Supreme Coach in the media
-                  </h2>
-                </div>
-              </div>
-              <div className="newsroom-collection_wrapper w-dyn-list">
-                <div
-                  role="list"
-                  className="newsroom-collection_list w-dyn-items"
-                >
-                  <div
-                    role="listitem"
-                    className="newsroom-collection_item w-dyn-item"
-                  >
-                    <a
-                      href="https://techcrunch.com/2024/10/21/Supreme Coach-is-building-a-platform-for-brand-and-creator-colloboration-with-a-focus-on-b2b-sector/"
-                      target="_blank"
-                      className="newsroom-collection_link w-inline-block"
-                    >
-                      <div className="newsroom-collection_content margin-bottom margin-xsmall">
-                        <div className="margin-bottom margin-medium"></div>
-                        <div className="margin-bottom margin-custom2">
-                          <h3 className="heading-style-h5">
-                            Supreme Coach is a marketplace for business-focused
-                            content creators looking for brand partnerships —
-                            and vice versa
-                          </h3>
-                        </div>
-                        <p className="text-size-regular">
-                          Berlin-based startup Supreme Coach is building a
-                          toolkit and a marketplace for business, productivity,
-                          and thought leadership-focused creators for brand
-                          collaborations.
-                        </p>
-                      </div>
-                      <div className="newsroom-collection_cta-wrapper">
-                        <div className="text-size-regular text-weight-medium display-inlineblock">
-                          Read post
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                  <div
-                    role="listitem"
-                    className="newsroom-collection_item w-dyn-item"
-                  >
-                    <a
-                      href="https://sifted.eu/articles/Supreme Coach-creator-economy-startup/"
-                      target="_blank"
-                      className="newsroom-collection_link w-inline-block"
-                    >
-                      <div className="newsroom-collection_content margin-bottom margin-xsmall">
-                        <div className="margin-bottom margin-medium"></div>
-                        <div className="margin-bottom margin-custom2">
-                          <h3 className="heading-style-h5">
-                            This creator platform raised €3m
-                          </h3>
-                        </div>
-                        <p className="text-size-regular">
-                          Berlin-based Supreme Coach is a no-code platform to
-                          help creators keep track of projects and cashflow.
-                        </p>
-                      </div>
-                      <div className="newsroom-collection_cta-wrapper">
-                        <div className="text-size-regular text-weight-medium display-inlineblock">
-                          Read post
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                  <div
-                    role="listitem"
-                    className="newsroom-collection_item w-dyn-item"
-                  >
-                    <a
-                      href="https://tech.eu/2021/12/15/helping-the-creator-economy-keep-on-keepin-on-berlins-Supreme Coach-raises-e3-million/"
-                      target="_blank"
-                      className="newsroom-collection_link w-inline-block"
-                    >
-                      <div className="newsroom-collection_content margin-bottom margin-xsmall">
-                        <div className="margin-bottom margin-medium"></div>
-                        <div className="margin-bottom margin-custom2">
-                          <h3 className="heading-style-h5">
-                            Helping the creator economy keep on keepin&apos; on,
-                            Berlin&apos;s Supreme Coach raises €3 million
-                          </h3>
-                        </div>
-                        <p className="text-size-regular">
-                          Berlin-based Supreme Coach has raised €3 million in a
-                          pre-seed funding round. The startup joins the
-                          burgeoning field of back-office tool suppliers to the
-                          creator economy.
-                        </p>
-                      </div>
-                      <div className="newsroom-collection_cta-wrapper">
-                        <div className="text-size-regular text-weight-medium display-inlineblock">
-                          Read post
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* FAQ Section */}
+      <FaqSection />
 
-      {/* Careers CTA Section */}
-      <section className="section-about-careers">
-        <div className="page-padding">
-          <div className="padding-section-medium padding-bottom-0">
-            <div className="careers-cta_component">
-              <div className="careers-cta_text">
-                <div className="margin-bottom margin-small">
-                  <h2 className="heading-style-h3">
-                    Let&apos;s empower creators, together
-                  </h2>
-                </div>
-                <div className="margin-bottom margin-medium">
-                  <p>
-                    Passionate about making an impact? Join our journey – and
-                    change the way tomorrow&apos;s entrepreneurs do business.
-                  </p>
-                </div>
-                <Link
-                  id="w-node-careers-cta"
-                  href="#"
-                  className="button is-secondary w-inline-block"
-                >
-                  <div className="button-text">See open positions</div>
-                </Link>
-              </div>
-              <div className="careers-cta_image"></div>
-            </div>
-            <div className="container-large"></div>
-          </div>
-        </div>
-      </section>
-
-      {/* Product CTA Section */}
-      <section className="section-product-cta">
-        <div className="page-padding">
-          <div className="padding-section-medium">
-            <div className="container-large">
-              <div className="footer-cta-flex">
-                <div className="cta-footer-wrap">
-                  <div className="margin-bottom margin-small"></div>
-                  <div className="margin-bottom margin-medium">
-                    <h2 className="heading-style-h3">
-                      Get the tools you need to succeed as a creator.
-                    </h2>
-                  </div>
-                  <Link
-                    id="w-node-product-cta"
-                    href="/get-access"
-                    target="_blank"
-                    className="button w-inline-block"
-                  >
-                    <div className="button-text">Request a demo</div>
-                  </Link>
-                </div>
-                <div className="footer-cta-product hide-mobile-portrait"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </>
   );
 }

@@ -55,7 +55,7 @@ export default function Footer() {
                   alignItems: "center"
                 }}>
                   <a
-                    href="#"
+                    href="https://twitter.com/supremecoach"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="social-link-item"
@@ -77,7 +77,7 @@ export default function Footer() {
                     </div>
                   </a>
                   <a
-                    href="#"
+                    href="https://www.instagram.com/supremecoach/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="social-link-item"
@@ -139,7 +139,7 @@ export default function Footer() {
                     </div>
                   </a>
                   <a
-                    href="#"
+                    href="https://www.youtube.com/@supremecoach"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="social-link-item"

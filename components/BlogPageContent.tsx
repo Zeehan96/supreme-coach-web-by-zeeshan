@@ -299,7 +299,7 @@ export default function BlogPageContent({ type = "blog" }: BlogPageContentProps)
                 <div className="w-layout-grid social-media_grid">
                   <a
                     id="w-node-_2b60442b-59f9-6b3a-c1c3-a937cbba45c1-cbba45b8"
-                    href="https://www.instagram.com/getpassionfroot/"
+                    href="https://www.instagram.com/supremecoach/"
                     target="_blank"
                     className="social-media_link-wrapper is-pink end-left w-inline-block"
                   >
@@ -317,7 +317,7 @@ export default function BlogPageContent({ type = "blog" }: BlogPageContentProps)
                   </a>
                   <a
                     id="w-node-_2b60442b-59f9-6b3a-c1c3-a937cbba45c6-cbba45b8"
-                    href="https://www.youtube.com/channel/UCqhF8xiopz3ch3Ff21aYzgw/featured"
+                    href="https://www.youtube.com/@supremecoach"
                     target="_blank"
                     className="social-media_link-wrapper is-blue mobile-landscape-radius-right w-inline-block"
                   >
@@ -335,7 +335,7 @@ export default function BlogPageContent({ type = "blog" }: BlogPageContentProps)
                   </a>
                   <a
                     id="w-node-_2b60442b-59f9-6b3a-c1c3-a937cbba45cb-cbba45b8"
-                    href="https://twitter.com/passionfrootxyz"
+                    href="https://twitter.com/supremecoach"
                     target="_blank"
                     className="social-media_link-wrapper is-yellow mobile-landscape-radius-left w-inline-block"
                   >
@@ -353,7 +353,7 @@ export default function BlogPageContent({ type = "blog" }: BlogPageContentProps)
                   </a>
                   <a
                     id="w-node-_2b60442b-59f9-6b3a-c1c3-a937cbba45d0-cbba45b8"
-                    href="https://www.linkedin.com/company/get-passionfroot/"
+                    href="https://www.linkedin.com/company/supremecoach/"
                     target="_blank"
                     className="social-media_link-wrapper is-green end-right w-inline-block"
                   >

@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import SectionHero from "./Home/SectionHero";
 import SectionMainStats from "./Home/SectionMainStats";
@@ -10,6 +10,7 @@ import SectionBento3 from "./Home/SectionBento3";
 import SectionModals from "./Home/SectionModals";
 import SectionCta from "./Home/SectionCta";
 import SectionCaseStudies from "./Home/SectionCaseStudies";
+import FaqSection from "./Payment/FaqSection";
 
 export default function HomePageContent() {
   return (
@@ -24,6 +25,7 @@ export default function HomePageContent() {
       <SectionModals />
       <SectionCta />
       <SectionCaseStudies />
+      <FaqSection />
     </>
   );
 }

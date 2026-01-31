@@ -286,7 +286,7 @@ export default function GuidePageContent() {
                 <div className="w-layout-grid social-media_grid">
                   <a
                     id="w-node-_2b60442b-59f9-6b3a-c1c3-a937cbba45c1-cbba45b8"
-                    href="https://www.instagram.com/getpassionfroot/"
+                    href="https://www.instagram.com/supremecoach/"
                     target="_blank"
                     className="social-media_link-wrapper is-pink end-left w-inline-block"
                   >
@@ -304,7 +304,7 @@ export default function GuidePageContent() {
                   </a>
                   <a
                     id="w-node-_2b60442b-59f9-6b3a-c1c3-a937cbba45c6-cbba45b8"
-                    href="https://www.youtube.com/channel/UCqhF8xiopz3ch3Ff21aYzgw/featured"
+                    href="https://www.youtube.com/@supremecoach"
                     target="_blank"
                     className="social-media_link-wrapper is-blue mobile-landscape-radius-right w-inline-block"
                   >
@@ -340,7 +340,7 @@ export default function GuidePageContent() {
                   </a>
                   <a
                     id="w-node-_2b60442b-59f9-6b3a-c1c3-a937cbba45d0-cbba45b8"
-                    href="https://www.linkedin.com/company/get-passionfroot/"
+                    href="https://www.linkedin.com/company/supremecoach/"
                     target="_blank"
                     className="social-media_link-wrapper is-green end-right w-inline-block"
                   >
