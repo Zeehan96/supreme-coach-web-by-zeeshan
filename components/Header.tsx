@@ -732,28 +732,7 @@ function ForProductsDropdown() {
       onMouseEnter={() => setIsProductsOpen(true)}
       onMouseLeave={() => setIsProductsOpen(false)}
     >
-      <button
-        type="button"
-        className="navdrop-toggle w-dropdown-toggle"
-        aria-haspopup="true"
-        aria-expanded={isProductsOpen}
-        onClick={(e) => {
-          e.stopPropagation();
-          setIsProductsOpen((v) => !v);
-        }}
-      >
-        <span className="navbar_menu-link">Products</span>
-        <span
-          className="dropdown-chevron"
-          style={{
-            transform: isProductsOpen ? "rotate(180deg)" : "none",
-            transition: "transform 0.2s",
-            display: "inline-flex",
-          }}
-        >
-          <ChevronDown className="w-4 h-4" />
-        </span>
-      </button>
+     
 
       <nav
         className="nav_drop-list creators w-dropdown-list"

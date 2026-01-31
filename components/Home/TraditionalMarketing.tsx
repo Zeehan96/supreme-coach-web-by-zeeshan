@@ -69,7 +69,19 @@ const TraditionalMarketing = () => {
               </p>
             </div>
 
-            <div className="features-grid">
+            <div className="CuWallOfFeatures_gridWrapper__ff1He">
+              <div className="features-grid">
+
+              {/* Empty row – top, so start is not cut off by mask */}
+              <div className="feature-item feature-item--empty" aria-hidden="true" />
+              <div className="feature-item feature-item--empty" aria-hidden="true" />
+              <div className="feature-item feature-item--empty" aria-hidden="true" />
+              <div className="feature-item feature-item--empty" aria-hidden="true" />
+              <div className="feature-item feature-item--empty" aria-hidden="true" />
+              <div className="feature-item feature-item--empty" aria-hidden="true" />
+              <div className="feature-item feature-item--empty" aria-hidden="true" />
+              <div className="feature-item feature-item--empty" aria-hidden="true" />
+              <div className="feature-item feature-item--empty" aria-hidden="true" />
 
               {/* Top Row - Marketing Features */}
               <div className="feature-item"><div className="icon-wrapper"><Megaphone size={24} strokeWidth={1.5} /></div><span className="feature-name">Advertising</span></div>
@@ -197,6 +209,18 @@ const TraditionalMarketing = () => {
               <div className="feature-item"><div className="icon-wrapper"><Users size={24} strokeWidth={1.5} /></div><span className="feature-name">Roadmaps</span></div>
               <div className="feature-item"><div className="icon-wrapper"><Inbox size={24} strokeWidth={1.5} /></div><span className="feature-name">Inbox</span></div>
 
+              {/* Empty row – so bottom row is not cut off by mask */}
+              <div className="feature-item feature-item--empty" aria-hidden="true" />
+              <div className="feature-item feature-item--empty" aria-hidden="true" />
+              <div className="feature-item feature-item--empty" aria-hidden="true" />
+              <div className="feature-item feature-item--empty" aria-hidden="true" />
+              <div className="feature-item feature-item--empty" aria-hidden="true" />
+              <div className="feature-item feature-item--empty" aria-hidden="true" />
+              <div className="feature-item feature-item--empty" aria-hidden="true" />
+              <div className="feature-item feature-item--empty" aria-hidden="true" />
+              <div className="feature-item feature-item--empty" aria-hidden="true" />
+
+              </div>
             </div>
           </div>
         </div>
@@ -232,6 +256,20 @@ const TraditionalMarketing = () => {
             font-size: 1.125rem;
             color: #6b6b78;
             font-weight: 400;
+        }
+
+        .CuWallOfFeatures_gridWrapper__ff1He {
+          position: relative;
+          display: block;
+          justify-content: center;
+          max-inline-size: 1381px;
+          margin: -70px auto auto;
+          margin-block-end: -60px;
+          background: #e8e8e8;
+          -webkit-mask-image: linear-gradient(90deg, transparent 2%, rgb(217, 217, 217) 10%, rgb(217, 217, 217) 90%, transparent 98%), linear-gradient(180deg, transparent 5%, rgb(217, 217, 217) 15%, rgb(217, 217, 217) 85%, transparent 95%);
+          mask-image: linear-gradient(90deg, transparent 2%, rgb(217, 217, 217) 10%, rgb(217, 217, 217) 90%, transparent 98%), linear-gradient(180deg, transparent 5%, rgb(217, 217, 217) 15%, rgb(217, 217, 217) 85%, transparent 95%);
+          -webkit-mask-composite: source-in, xor;
+          mask-composite: intersect;
         }
 
         .features-grid {
@@ -270,8 +308,23 @@ const TraditionalMarketing = () => {
            border: 1px solid #1a1a1a;
            cursor: pointer;
         }
+        .feature-item.featured-item:hover {
+           border: none;
+           box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+           transform: translateY(-2px);
+           cursor: pointer;
+        }
         .feature-item:hover .icon-wrapper, .feature-item:hover .feature-name {
            color: #24223e;
+        }
+
+        .feature-item--empty {
+          min-height: 110px;
+          pointer-events: none;
+        }
+        .feature-item--empty::before {
+          content: '';
+          display: block;
         }
 
         /* FEATURED ITEMS STYLES */
@@ -285,6 +338,10 @@ const TraditionalMarketing = () => {
            justify-content: center;
            background: #fff; /* Fallback */
         }
+        .featured-item.projects-card { border-bottom-right-radius: 10px; }
+        .featured-item.docs-card { border-bottom-left-radius: 10px; }
+        .featured-item.brain-card { border-top-right-radius: 10px; }
+        .featured-item.chat-card { border-top-left-radius: 10px; }
         
         .featured-content {
            width: 100%;
@@ -307,7 +364,7 @@ const TraditionalMarketing = () => {
            z-index: 2;
         }
 
-        /* Projects Stylings */
+        /* Projects Stylings – corner radius set above */
         .projects-card { background: linear-gradient(135deg, #FFFCF5 0%, #FFF 100%); }
         .mini-ui-projects {
             width: 80%;
