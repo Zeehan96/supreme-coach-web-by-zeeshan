@@ -50,8 +50,38 @@ const SectionHero = () => {
 
   return (
     <div className="section_hero creators">
-      <div className="padding-global hero new-hero" style={{
-      }}>
+      <div 
+        className="padding-global hero new-hero" 
+        style={{
+          display: "block",
+          position: "relative",
+          paddingTop: 0,
+          paddingBottom: 0
+        }}
+      >
+        {/* White mask at top and bottom of section */}
+        <div style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          height: "80px",
+          background: "linear-gradient(180deg, #ffffff 0%, rgba(255,255,255,0) 100%)",
+          zIndex: 2,
+          pointerEvents: "none"
+        }} />
+        
+        <div style={{
+          position: "absolute",
+          bottom: 0,
+          left: 0,
+          right: 0,
+          height: "80px",
+          background: "linear-gradient(0deg, #ffffff 0%, rgba(255,255,255,0) 100%)",
+          zIndex: 2,
+          pointerEvents: "none"
+        }} />
+        
         <div className="container-xxlarge">
           <div
             className="hero_component hero_component--two-col"
@@ -60,7 +90,7 @@ const SectionHero = () => {
               gridTemplateColumns: "1fr 1fr",
               gap: "3rem",
               alignItems: "center",
-              paddingTop: "2rem",
+              paddingTop: 0,
               paddingBottom: "3rem",
             }}
           >
@@ -119,7 +149,7 @@ const SectionHero = () => {
                     <span>No credit card.</span>
                   </div>
                 </div>
-                {/* Workspace builder tabs */}
+                {/* Workspace builder tabs - 4 per row with rounded corners */}
                 <div style={{ marginTop: "1.5rem", width: "100%" }}>
                   <div
                     className="HomeHero4o_workspaceBuilderFeatures__title"
@@ -134,7 +164,15 @@ const SectionHero = () => {
                   >
                     GET 400% MORE DONE • CUSTOMIZE YOUR WORKSPACE
                   </div>
-                  <div className="HomeHero4o_workspaceBuilderFeatures__xgXJ9">
+                  <div 
+                    className="HomeHero4o_workspaceBuilderFeatures__xgXJ9"
+                    style={{
+                      display: "grid",
+                      gridTemplateColumns: "repeat(4, 1fr)",
+                      gap: "0.5rem",
+                      width: "100%"
+                    }}
+                  >
                     {HERO_TABS.map((tab) => {
                       const isSelected = selectedTabs.has(tab);
                       return (
@@ -143,10 +181,38 @@ const SectionHero = () => {
                         type="button"
                         onClick={() => toggleTab(tab)}
                         className={`HomeHero4o_workspaceBuilderFeature__um7iP ${isSelected ? "HomeHero4o_selected__BdTPJ" : ""}`}
+                        style={{
+                          position: "relative",
+                          padding: "0.5rem 0.75rem",
+                          backgroundColor: isSelected ? "#f3f4f6" : "transparent",
+                          border: isSelected ? "2px solid #000000" : "1px solid #e5e7eb",
+                          borderRadius: "2rem", // Increased border radius for rounded/pill shape
+                          fontSize: "0.875rem",
+                          fontWeight: 500,
+                          color: isSelected ? "#000000" : "#111827",
+                          cursor: "pointer",
+                          transition: "all 0.2s ease",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          width: "100%",
+                          outline: "none"
+                        }}
+                        onMouseEnter={(e) => {
+                          if (!isSelected) {
+                            e.currentTarget.style.backgroundColor = "#f9fafb";
+                            e.currentTarget.style.borderColor = "#d1d5db";
+                          }
+                        }}
+                        onMouseLeave={(e) => {
+                          if (!isSelected) {
+                            e.currentTarget.style.backgroundColor = "transparent";
+                            e.currentTarget.style.borderColor = "#e5e7eb";
+                          }
+                        }}
                       >
                         {isSelected && (
                           <span
-                            className="HomeHero4o_tabCheck__circle"
                             style={{
                               position: "absolute",
                               top: "-4px",
@@ -154,18 +220,18 @@ const SectionHero = () => {
                               width: "18px",
                               height: "18px",
                               borderRadius: "50%",
-                              background: "#0091ff",
+                              background: "#000000",
                               display: "inline-flex",
                               alignItems: "center",
                               justifyContent: "center",
                               flexShrink: 0,
-                              boxShadow: "0 1px 3px rgba(0, 145, 255, 0.35)",
+                              boxShadow: "0 1px 3px rgba(0, 0, 0, 0.25)",
                             }}
                           >
                             <Check
                               size={10}
                               strokeWidth={3}
-                              color="#fff"
+                              color="#ffffff"
                               style={{ display: "block" }}
                             />
                           </span>
@@ -178,8 +244,27 @@ const SectionHero = () => {
               </div>
             </div>
 
-            {/* Right: Image – 920px, clipped from right so only visible part shows */}
-            <div className="hero_image-side HomeHero4o_heroImageWrapper__8DM2b">
+            {/* Right: Image - Bara kiya gaya hai taake cut ho jaye with white mask */}
+            <div 
+              className="hero_image-side HomeHero4o_heroImageWrapper__8DM2b"
+              style={{
+                overflow: "hidden",
+                height: "600px",
+                position: "relative"
+              }}
+            >
+              {/* White mask on image edges */}
+              <div style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                background: "radial-gradient(circle at center, transparent 50%, rgba(255,255,255,0.8) 100%)",
+                zIndex: 1,
+                pointerEvents: "none"
+              }} />
+              
               <picture>
                 <img
                   key={activeTabForImage}
@@ -187,6 +272,17 @@ const SectionHero = () => {
                   srcSet={heroImageSrcset}
                   sizes="(max-width: 768px) 100vw, 920px"
                   alt={`${activeTabForImage} – workspace`}
+                  style={{
+                    width: "120%",
+                    height: "120%",
+                    objectFit: "cover",
+                    objectPosition: "center right",
+                    display: "block",
+                    maxWidth: "none",
+                    position: "absolute",
+                    top: "-10%",
+                    right: "-10%"
+                  }}
                 />
               </picture>
             </div>

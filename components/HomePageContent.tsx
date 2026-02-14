@@ -18,7 +18,7 @@ export default function HomePageContent() {
       <SectionHero />
       <SectionMainStats />
       <TraditionalMarketing />
-      <SectionBento1 />
+      {/* <SectionBento1 /> */}
       <SectionSingleReview />
       <SectionBento2 />
       <SectionBento3 />
