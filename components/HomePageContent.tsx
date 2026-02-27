@@ -27,36 +27,16 @@ export default function HomePageContent() {
 
   return (
     <>
-      <AnimateOnScroll className="snap-section">
         <SectionHero />
-      </AnimateOnScroll>
-      <AnimateOnScroll className="snap-section">
         <SectionMainStats />
-      </AnimateOnScroll>
-      <AnimateOnScroll className="snap-section">
         <TraditionalMarketing />
-      </AnimateOnScroll>
-      <AnimateOnScroll className="snap-section">
         <SectionSingleReview />
-      </AnimateOnScroll>
-      <AnimateOnScroll className="snap-section">
         <SectionBento2 />
-      </AnimateOnScroll>
-      <AnimateOnScroll className="snap-section">
         <SectionBento3 />
-      </AnimateOnScroll>
-      <AnimateOnScroll className="snap-section">
         <SectionModals />
-      </AnimateOnScroll>
-      <AnimateOnScroll className="snap-section">
         <SectionCta />
-      </AnimateOnScroll>
-      <AnimateOnScroll className="snap-section">
         <SectionCaseStudies />
-      </AnimateOnScroll>
-      <AnimateOnScroll className="snap-section">
         <FaqSection />
-      </AnimateOnScroll>
     </>
   );
 }
