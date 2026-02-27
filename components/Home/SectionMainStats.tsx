@@ -132,12 +132,34 @@ const tabGradients: Record<string, string> = {
   youtube: 'linear-gradient(180deg, #ef6c79 0%, #ee5968 100%)',
 };
 
+const TAB_KEYS = tabs.map((t) => t.key);
+
 const SectionMainStats = () => {
   const [activeTab, setActiveTab] = useState<string>('linkedin');
   const detailsRef = useRef<HTMLDivElement>(null);
+  const autoSlideRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const goToNextTab = () => {
+    setActiveTab((current) => {
+      const idx = TAB_KEYS.indexOf(current);
+      const nextIdx = (idx + 1) % TAB_KEYS.length;
+      return TAB_KEYS[nextIdx];
+    });
+  };
+
+  useEffect(() => {
+    autoSlideRef.current = setInterval(goToNextTab, 4500);
+    return () => {
+      if (autoSlideRef.current) clearInterval(autoSlideRef.current);
+    };
+  }, []);
 
   const handleTabClick = (tabKey: string) => {
     setActiveTab(tabKey);
+    if (autoSlideRef.current) {
+      clearInterval(autoSlideRef.current);
+      autoSlideRef.current = setInterval(goToNextTab, 4500);
+    }
     setTimeout(() => {
       detailsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }, 100);
@@ -642,58 +664,59 @@ const SectionMainStats = () => {
             </div>
           </div >
 
-          {/* Content Section - Always visible with active tab content */}
-          {
-            contentData[activeTab] && (
-              <div ref={detailsRef} className="tab-content-active">
-                {/* Left Side */}
-                <div className="tab-content-overview">
-                  <h3 className="tab-heading">
-                    {contentData[activeTab].title}
-                    <span>{contentData[activeTab].description}</span>
-                  </h3>
-
-                  <div style={{ marginBottom: '1.5rem', color: '#999', fontSize: '0.875rem', fontWeight: 600, letterSpacing: '1px' }}>
-                    REPLACES
-                    {/* Placeholder for icons */}
-                    <span style={{ marginLeft: '10px', fontSize: '1.2rem' }}>❖ ❈ ▨ ▣</span>
+          {/* Content Section - Horizontal sliding carousel (like logo strip) */}
+          <div ref={detailsRef} className="tab-content-active tab-content-carousel-wrap">
+            <div
+              className="tab-content-carousel-track"
+              style={{
+                transform: `translateX(-${(100 / TAB_KEYS.length) * TAB_KEYS.indexOf(activeTab)}%)`,
+              }}
+            >
+              {TAB_KEYS.map((tabKey) => (
+                <div key={tabKey} className="tab-content-carousel-slide">
+                  <div className="tab-content-overview">
+                    <h3 className="tab-heading">
+                      {contentData[tabKey].title}
+                      <span>{contentData[tabKey].description}</span>
+                    </h3>
+                    <div style={{ marginBottom: '1.5rem', color: '#999', fontSize: '0.875rem', fontWeight: 600, letterSpacing: '1px' }}>
+                      REPLACES
+                      <span style={{ marginLeft: '10px', fontSize: '1.2rem' }}>❖ ❈ ▨ ▣</span>
+                    </div>
+                    <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                      {contentData[tabKey].checklist.map((item: string, idx: number) => (
+                        <li key={idx} style={{ display: 'flex', alignItems: 'center', marginBottom: '0.75rem', color: '#444' }}>
+                          <Check size={18} style={{ marginRight: '10px', color: '#666' }} />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-
-                  <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                    {contentData[activeTab].checklist.map((item: string, idx: number) => (
-                      <li key={idx} style={{ display: 'flex', alignItems: 'center', marginBottom: '0.75rem', color: '#444' }}>
-                        <Check size={18} style={{ marginRight: '10px', color: '#666' }} />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Right Side */}
-                <div
-                  className="tab-card-wrapper"
-                  style={{
-                    background: tabGradients[activeTab] || "#f8f9fa",
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                  }}
-                >
-                  <img
-                    src="https://cdn.prod.website-files.com/6340255dae4cf91cdda9ff9f/670921e0e10d20ecb690ddf5_Frame%20427323501.avif"
-                    alt="Agent illustration"
+                  <div
+                    className="tab-card-wrapper"
                     style={{
-                      width: "100%",
-                      maxWidth: "500px",
-                      height: "auto",
-                      borderRadius: "12px",
-                      objectFit: "contain",
+                      background: tabGradients[tabKey] || "#f8f9fa",
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
                     }}
-                  />
+                  >
+                    <img
+                      src="https://cdn.prod.website-files.com/6340255dae4cf91cdda9ff9f/670921e0e10d20ecb690ddf5_Frame%20427323501.avif"
+                      alt="Agent illustration"
+                      style={{
+                        width: "100%",
+                        maxWidth: "500px",
+                        height: "auto",
+                        borderRadius: "12px",
+                        objectFit: "contain",
+                      }}
+                    />
+                  </div>
                 </div>
-              </div>
-            )
-          }
+              ))}
+            </div>
+          </div>
 
         </div >
       </div >
@@ -724,9 +747,9 @@ const SectionMainStats = () => {
           min-inline-size: -moz-fit-content;
           min-inline-size: fit-content;
           padding: 4px 12px;
-          border: 2px dashed rgba(0, 0, 0, 0.1) !important;
+          border: 1px solid #d9d9d9 !important;
           border-radius: 54px;
-          background-color: rgba(0, 0, 0, 0);
+          background-color: transparent;
           color: #646464;
           font-weight: 600;
           font-size: 14px;
@@ -738,10 +761,10 @@ const SectionMainStats = () => {
         }
         
         .tab-button-static.active {
-          border: 2px solid #0091ff;
-          border-radius: 16px;
-          background-color: #edf6fd;
-          color: #0091ff;
+          border: 2px solid #000000 !important;
+          border-radius: 54px;
+          background-color: #f5f5f5;
+          color: #000000;
           animation: borderPulse 0.4s ease;
         }
         
@@ -757,12 +780,33 @@ const SectionMainStats = () => {
           margin-top: 35px !important;
           -webkit-margin-before: 12px;
           margin-block-start: 12px;
-          display: flex;
           border-radius: 32px;
           background-color: #f8f9fa;
           box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-          animation: fadeIn 0.3s ease-out;
           overflow: hidden;
+        }
+        
+        .tab-content-carousel-wrap {
+          overflow: hidden;
+          width: 100%;
+        }
+        
+        .tab-content-carousel-track {
+          display: flex;
+          width: 700%;
+          transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .tab-content-carousel-slide {
+          flex: 0 0 14.2857%;
+          min-width: 0;
+          display: flex;
+        }
+        
+        .tab-content-carousel-slide .tab-content-overview,
+        .tab-content-carousel-slide .tab-card-wrapper {
+          flex: 1;
+          min-width: 0;
         }
         
         .tab-content-overview {

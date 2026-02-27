@@ -167,9 +167,9 @@ const SectionHero = () => {
                   <div 
                     className="HomeHero4o_workspaceBuilderFeatures__xgXJ9"
                     style={{
-                      display: "grid",
-                      gridTemplateColumns: "repeat(4, 1fr)",
-                      gap: "0.5rem",
+                      display: "flex",
+                      flexWrap: "wrap",
+                      gap: "6px",
                       width: "100%"
                     }}
                   >
@@ -183,31 +183,34 @@ const SectionHero = () => {
                         className={`HomeHero4o_workspaceBuilderFeature__um7iP ${isSelected ? "HomeHero4o_selected__BdTPJ" : ""}`}
                         style={{
                           position: "relative",
-                          padding: "0.5rem 0.75rem",
-                          backgroundColor: isSelected ? "#f3f4f6" : "transparent",
-                          border: isSelected ? "2px solid #000000" : "1px solid #e5e7eb",
-                          borderRadius: "2rem", // Increased border radius for rounded/pill shape
-                          fontSize: "0.875rem",
-                          fontWeight: 500,
-                          color: isSelected ? "#000000" : "#111827",
+                          padding: "4.33px 12.33px",
+                          border: isSelected ? "1px solid #000000" : "1px solid #d9d9d9",
+                          borderRadius: "54px",
+                          color: isSelected ? "#000000" : "#646464",
+                          fontWeight: 600,
+                          fontSize: "14px",
+                          fontFamily: "Inter, sans-serif",
+                          lineHeight: "20px",
+                          letterSpacing: "-0.15px",
                           cursor: "pointer",
-                          transition: "all 0.2s ease",
+                          userSelect: "none",
+                          transition: "border-color 0.3s ease, background-color 0.3s ease",
+                          backgroundColor: isSelected ? "#f5f5f5" : "transparent",
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",
-                          width: "100%",
                           outline: "none"
                         }}
                         onMouseEnter={(e) => {
                           if (!isSelected) {
-                            e.currentTarget.style.backgroundColor = "#f9fafb";
-                            e.currentTarget.style.borderColor = "#d1d5db";
+                            e.currentTarget.style.backgroundColor = "#fafafa";
+                            e.currentTarget.style.borderColor = "#b3b3b3";
                           }
                         }}
                         onMouseLeave={(e) => {
                           if (!isSelected) {
                             e.currentTarget.style.backgroundColor = "transparent";
-                            e.currentTarget.style.borderColor = "#e5e7eb";
+                            e.currentTarget.style.borderColor = "#d9d9d9";
                           }
                         }}
                       >
@@ -253,25 +256,33 @@ const SectionHero = () => {
                 position: "relative"
               }}
             >
-              {/* White mask on image edges */}
+              {/* White gradient overlay - bottom to top (lighter) */}
+              <div
+                className="HomeHero4o_heroImageWrapper__8DM2b_overlay"
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  background: "linear-gradient(0deg, rgba(255,255,255,0.5) 0%, transparent 20%)",
+                  zIndex: 2,
+                  pointerEvents: "none"
+                }}
+              />
+              {/* White mask on image edges (lighter) */}
               <div style={{
                 position: "absolute",
                 top: 0,
                 left: 0,
                 right: 0,
                 bottom: 0,
-                background: "radial-gradient(circle at center, transparent 50%, rgba(255,255,255,0.8) 100%)",
+                background: "radial-gradient(circle at center, transparent 50%, rgba(255,255,255,0.45) 100%)",
                 zIndex: 1,
                 pointerEvents: "none"
               }} />
               
               <picture>
                 <img
-                  key={activeTabForImage}
-                  src={heroImageSrc}
-                  srcSet={heroImageSrcset}
-                  sizes="(max-width: 768px) 100vw, 920px"
-                  alt={`${activeTabForImage} – workspace`}
+                  src="/randomimg.jpg"
+                  alt="Workspace"
                   style={{
                     width: "120%",
                     height: "120%",

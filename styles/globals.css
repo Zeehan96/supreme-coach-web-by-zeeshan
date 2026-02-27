@@ -1,4 +1,4 @@
-﻿html {
+html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   font-family: sans-serif;
@@ -16,6 +16,17 @@ h1 {
 }
 body {
   margin: 0;
+}
+
+/* Step-by-step scroll snap on home page */
+html.home-snap-scroll,
+body.home-snap-scroll {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+.snap-section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 
 article,
@@ -13397,10 +13408,59 @@ figcaption {
   overflow: hidden;
 }
 
+.bento_graphic.design-campaign.design-campaign-with-image {
+  background-color: transparent !important;
+  background-image: none !important;
+  overflow: hidden;
+}
+.bento_graphic.design-campaign.design-campaign-with-image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.bento_graphic.design-campaign.design-campaign-with-image .design-campaign-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  transition: transform 0.4s ease;
+}
+.bento_graphic.design-campaign.design-campaign-with-image:hover .design-campaign-image {
+  transform: scale(1.06);
+}
+
 .bento_graphic.own-campaign {
   min-height: 22rem;
   padding-top: 1.875rem;
   overflow: hidden;
+}
+
+.bento_graphic.own-campaign.own-campaign-with-image {
+  background-color: transparent !important;
+  background-image: none !important;
+  position: relative;
+  overflow: hidden;
+}
+.bento_graphic.own-campaign.own-campaign-with-image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url(/beautiful-mountain-landscape.jpg);
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  transition: transform 0.4s ease;
+}
+.bento_graphic.own-campaign.own-campaign-with-image:hover::before {
+  transform: scale(1.06);
+}
+.bento_graphic.own-campaign.own-campaign-with-image > * {
+  position: relative;
+  z-index: 1;
 }
 
 .bento_graphic.book-slots {
