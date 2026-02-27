@@ -3,96 +3,65 @@ import React, { useState } from "react";
 type FaqItem = {
   id: string;
   question: string;
-  answer: React.ReactNode;
-  // optional image html
-  image?: { src: string; alt?: string; srcSet?: string; sizes?: string };
-  // which column: 0 = left, 1 = right
+  answer: string;
   col?: number;
-  maxHeight?: number;
 };
 
 const faqItems: FaqItem[] = [
   {
     id: "faq-4",
     question: "Is Supreme Coach free for creators?",
-    answer: (
-      <>
-        <p>
-          Yes, it’s free for creators to sign up and use Supreme Coach and
-          there are no upfront costs to get started.
-          <br />
-          <br />
-          Supreme Coach adds a 2% fee on every transaction, which the brand
-          covers. When we match you with a brand, we charge a 15% fee
-          (incl. payment fees).
-        </p>
-      </>
-    ),
-    image: {
-      src: "https://cdn.prod.website-files.com/6340255dae4cf91cdda9ff9f/670ec724933c19980b0ae5d8_Fees.avif",
-      alt: "pricing comparison chart",
-      srcSet:
-        "https://cdn.prod.website-files.com/6340255dae4cf91cdda9ff9f/670ec724933c19980b0ae5d8_Fees-p-500.avif 500w, https://cdn.prod.website-files.com/6340255dae4cf91cdda9ff9f/670ec724933c19980b0ae5d8_Fees.avif 1152w",
-      sizes: "100vw",
-    },
+    answer: "Yes, it’s free to sign up with no upfront costs. We add a 2% fee per transaction (brand covers it) and 15% when we match you with a brand.",
     col: 0,
-    maxHeight: 527,
   },
   {
     id: "faq-5",
     question: "How do I get started?",
     answer:
-      "Signing up is quick and easy. Just sign up to our waitlist and you will get access right away. Set up your profile with your offerings and audience insights, and you’re ready to start receiving collaboration requests from brands.",
+      "Sign up to our waitlist, set up your profile with offerings and audience insights, and you’re start receiving collaboration requests from brands.",
     col: 0,
-    maxHeight: 120,
   },
   {
     id: "faq-6",
     question: "How does Supreme Coach help me find brand partnerships?",
     answer:
-      "Supreme Coach matches you with B2B brands based on your audience, content niche, and platform. Brands will reach out to you for partnerships, and you can manage everything from booking to payments on the platform. Our Live Campaigns feature also lets you discover and apply to brands who run active campaigns.",
+      "We match you with B2B brands by audience and niche. You manage booking and payments on the platform; Live Campaigns lets you discover and apply to active campaigns.",
     col: 0,
-    maxHeight: 174,
   },
   {
     id: "faq-7",
     question: "Can I set my own rates?",
     answer:
-      "Yes! As a creator, you have full control over your pricing and what services you offer, such as shoutouts, sponsored posts, or newsletter features.",
+      "Yes. You set your pricing and services (shoutouts, sponsored posts, newsletter, etc.).",
     col: 0,
-    maxHeight: 92,
   },
-  {
-    id: "faq-8",
-    question: "How do payments work?",
-    answer:
-      "Payments are processed through the platform to ensure timely and secure transfers. You can track all invoices and payouts in your dashboard.",
-    col: 0,
-    maxHeight: 92,
-  },
+  // {
+  //   id: "faq-8",
+  //   question: "How do payments work?",
+  //   answer:
+  //     "Payments go through the platform. Track invoices and payouts in your dashboard.",
+  //   col: 0,
+  // },
   {
     id: "faq-10",
     question: "What type of brands will I work with?",
     answer:
-      "Supreme Coach partners with leading B2B brands across tech, SaaS, AI, finance, and more, helping you connect with companies that align with your niche and audience.",
+      "B2B brands across tech, SaaS, AI, finance and more that fit your niche and audience.",
     col: 1,
-    maxHeight: 120,
   },
   {
     id: "faq-11",
-    question: "How do I get more visibility with brands on the platform?",
+    question: "How do I get more visibility with brands?",
     answer:
-      "To increase visibility, keep your profile updated with your latest audience stats, content examples, and pricing. Brands can filter and discover creators based on specific criteria, so the more detailed your profile, the better. Share your Supreme Coach link across your own platforms for inbound leads.",
+      "Keep your profile updated with audience stats, content examples and pricing. Share your link on your channels for more leads.",
     col: 1,
-    maxHeight: 174,
   },
   {
     id: "faq-12",
     question: "How do I communicate with brands?",
     answer:
-      "Supreme Coach provides a direct messaging feature, allowing you to easily communicate with brands, discuss campaign details, and exchange feedback throughout the partnership.",
+      "Use the in-platform messaging to talk to brands, discuss campaigns and share feedback.",
     col: 1,
-    maxHeight: 120,
   },
 ];
 
@@ -107,7 +76,8 @@ const AccordionItem: React.FC<{
       data-hover="false"
       className="faq-p w-dropdown"
       style={{ 
-        height: isOpen ? (item.maxHeight ? `${item.maxHeight}px` : 'auto') : "3.25rem",
+        minHeight: "3.25rem",
+        height: isOpen ? 'auto' : undefined,
         transition: "height 0.3s ease-in-out",
         overflow: "hidden"
       }}
@@ -146,32 +116,21 @@ const AccordionItem: React.FC<{
         <div className="toggle-text">{item.question}</div>
       </button>
 
-      {/* Answer section - now inside the same card */}
+      {/* Answer section - only visible when this FAQ is open */}
       <div
         className="faq-answer-content"
         style={{ 
-          padding: isOpen ? "1rem 1rem 1.5rem 1rem" : "0 1rem",
+          padding: isOpen ? "0.75rem 1rem 1rem 1rem" : 0,
           opacity: isOpen ? 1 : 0,
-          transition: "opacity 0.2s ease-in-out, padding 0.3s ease-in-out"
+          height: isOpen ? "auto" : 0,
+          overflow: "hidden",
+          minHeight: isOpen ? undefined : 0,
+          transition: "opacity 0.2s ease-in-out, padding 0.2s ease-in-out, height 0.2s ease-in-out"
         }}
       >
         <div className="faq-answer">
           {item.answer}
         </div>
-        
-        {item.image && isOpen && (
-          <img
-            width="Auto"
-            height="Auto"
-            alt={item.image.alt ?? ""}
-            src={item.image.src}
-            loading="lazy"
-            srcSet={item.image.srcSet}
-            sizes={item.image.sizes}
-            className="faq_answer-in-img"
-            style={{ marginTop: "1rem" }}
-          />
-        )}
       </div>
     </div>
   );

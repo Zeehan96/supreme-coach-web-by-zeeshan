@@ -913,25 +913,6 @@ export default function HomePageScripts() {
         }
       }
 
-      // FAQ Max Height
-      const setMaxHeightForFaqP = () => {
-        const faqPElements = document.querySelectorAll(".faq-p");
-
-        faqPElements.forEach((faqP) => {
-          const children = faqP.children;
-
-          let totalHeight = 0;
-          for (let child of Array.from(children)) {
-            totalHeight += (child as HTMLElement).offsetHeight;
-          }
-
-          totalHeight += 4;
-          (faqP as HTMLElement).style.maxHeight = `${totalHeight}px`;
-        });
-      };
-
-      window.addEventListener("load", setMaxHeightForFaqP);
-
       // Measure Bento animation
       if (gsap && ScrollTrigger) {
         const measureTimeline = gsap.timeline({

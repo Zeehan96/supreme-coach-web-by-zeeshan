@@ -129,6 +129,7 @@ const SectionHero = () => {
                     target="_blank"
                     className="HomeHero4o_ctaButton__wrapper"
                   >
+                    <span className="HomeHero4o_rainbowGradient__D2ZLR" aria-hidden />
                     <span className="HomeHero4o_rainbowHighlight__dEYxe" />
                     <span className="HomeHero4o_ctaButton__inner">
                       Get started. It&apos;s FREE!
