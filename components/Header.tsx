@@ -27,7 +27,6 @@ import {
   Timer,
   X,
   Wallet,
-  Building2,
 } from "lucide-react";
 import { ReactNode } from "react";
 
@@ -389,7 +388,7 @@ function ForBrandsDropdown() {
               </a>
 
               <a
-                href="#"
+                href="/customers?type=coaches"
                 aria-label="nav-link"
                 className="nav_mega-link w-inline-block"
               >
@@ -401,22 +400,6 @@ function ForBrandsDropdown() {
                   <div className="text-size-small">
                     Discover how forward-thinking Coaches use Supreme Coach to
                     reach their growth goals.
-                  </div>
-                </div>
-              </a>
-
-              <a
-                href="/customers"
-                aria-label="nav-link"
-                className="nav_mega-link w-inline-block"
-              >
-                <div className="nav-maga-icon w-embed">
-                  <Building2 className="w-5 h-5" />
-                </div>
-                <div className="nav_m-link-texts">
-                  <div className="nav-mega-head">Customers</div>
-                  <div className="text-size-small">
-                    Learn how other creators are leveraging Passionfroot to monetize their content with brand partnerships.
                   </div>
                 </div>
               </a>
@@ -640,7 +623,7 @@ function ForCreatorsDropdown() {
               </a>
 
               <a
-                href="/creator-stories"
+                href="/customers?type=firms"
                 aria-label="nav-link"
                 className="nav_mega-link w-inline-block"
               >
@@ -652,22 +635,6 @@ function ForCreatorsDropdown() {
                   <div className="text-size-small">
                     Discover how forward-thinking Firms use Supreme Coach to
                     reach their growth goals.
-                  </div>
-                </div>
-              </a>
-
-              <a
-                href="/customers"
-                aria-label="nav-link"
-                className="nav_mega-link w-inline-block"
-              >
-                <div className="nav-maga-icon w-embed">
-                  <Building2 className="w-5 h-5" />
-                </div>
-                <div className="nav_m-link-texts">
-                  <div className="nav-mega-head">Customers</div>
-                  <div className="text-size-small">
-                    Learn how other creators are leveraging Passionfroot to monetize their content with brand partnerships.
                   </div>
                 </div>
               </a>

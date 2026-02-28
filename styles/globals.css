@@ -31754,6 +31754,90 @@ figcaption {
     background: var(--iteration-green, linear-gradient(180deg, #6CE49A 0%, #58DF8C 100%));
 }
 
+/* SectionBento3: image instead of green in cards (like SectionBento2) */
+.bento_graphic.full-height.green_color.full-height-with-image {
+  background: transparent !important;
+  position: relative;
+  overflow: hidden;
+}
+.bento_graphic.full-height.full-height-with-image .bento-bg-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  transition: transform 0.4s ease;
+}
+.bento_graphic.full-height.full-height-with-image:hover .bento-bg-image {
+  transform: scale(1.06);
+}
+.bento_graphic.full-height.full-height-with-image > *:not(.bento-bg-image) {
+  position: relative;
+  z-index: 1;
+}
+
+.bento_graphic.measure.green_color.measure-with-image {
+  background: transparent !important;
+  position: relative;
+  overflow: hidden;
+}
+.bento_graphic.measure.measure-with-image .bento-bg-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  transition: transform 0.4s ease;
+}
+.bento_graphic.measure.measure-with-image:hover .bento-bg-image {
+  transform: scale(1.06);
+}
+.bento_graphic.measure.measure-with-image > *:not(.bento-bg-image) {
+  position: relative;
+  z-index: 1;
+}
+
+/* Testimonial card (Supreme Coach / Lisa) - main image background */
+.bento_graphic.short.green_color.short-with-image {
+  background: transparent !important;
+  position: relative;
+  overflow: hidden;
+}
+.bento_graphic.short.short-with-image .bento-bg-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  transition: transform 0.4s ease;
+}
+.bento_graphic.short.short-with-image:hover .bento-bg-image {
+  transform: scale(1.06);
+}
+.bento_graphic.short.short-with-image > *:not(.bento-bg-image) {
+  position: relative;
+  z-index: 1;
+}
+.bento_graphic.short.short-with-image .testimonial-card-photo {
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  width: 40%;
+  max-width: 7rem;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
 .fs-toc_link {
     grid-column-gap: 0rem;
     grid-row-gap: 0rem;

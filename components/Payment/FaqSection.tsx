@@ -75,22 +75,25 @@ const AccordionItem: React.FC<{
       data-delay={0}
       data-hover="false"
       className="faq-p w-dropdown"
-      style={{ 
+      style={{
         minHeight: "3.25rem",
-        height: isOpen ? 'auto' : undefined,
+        height: isOpen ? "auto" : undefined,
         transition: "height 0.3s ease-in-out",
-        overflow: "hidden"
+        overflow: "hidden",
+        display: "flex",
+        flexDirection: "column",
       }}
     >
+      {/* Row 1: Arrow + Question (clickable) */}
       <button
         type="button"
         className="faq w-dropdown-toggle"
         aria-controls={`${item.id}-body`}
         aria-expanded={isOpen}
         onClick={onToggle}
-        style={{ width: "100%", background: "none", border: "none", cursor: "pointer" }}
+        style={{ width: "100%", background: "none", border: "none", cursor: "pointer", display: "flex", alignItems: "flex-start", gap: "0.75rem", textAlign: "left" }}
       >
-        <div className="accordian-icon-wrap">
+        <div className="accordian-icon-wrap" style={{ flexShrink: 0 }}>
           <div className="faq-bg-gradient orange-gradient" />
           <div className="faq-bg-gradient obsidian-gradient" style={{ opacity: 1 }} />
           <svg
@@ -113,25 +116,38 @@ const AccordionItem: React.FC<{
           </svg>
         </div>
 
-        <div className="toggle-text">{item.question}</div>
-      </button>
+        <div style={{ flex: 1, display: "flex", flexDirection: "column", minWidth: 0 }}>
+          <div className="toggle-text">{item.question}</div>
 
-      {/* Answer section - only visible when this FAQ is open */}
-      <div
-        className="faq-answer-content"
-        style={{ 
-          padding: isOpen ? "0.75rem 1rem 1rem 1rem" : 0,
-          opacity: isOpen ? 1 : 0,
-          height: isOpen ? "auto" : 0,
-          overflow: "hidden",
-          minHeight: isOpen ? undefined : 0,
-          transition: "opacity 0.2s ease-in-out, padding 0.2s ease-in-out, height 0.2s ease-in-out"
-        }}
-      >
-        <div className="faq-answer">
-          {item.answer}
+          {/* Answer below question only, in a card */}
+          <div
+            className="faq-answer-content"
+            style={{
+              marginTop: isOpen ? "0.75rem" : 0,
+              opacity: isOpen ? 1 : 0,
+              height: isOpen ? "auto" : 0,
+              overflow: "hidden",
+              minHeight: isOpen ? undefined : 0,
+              transition: "opacity 0.2s ease-in-out, margin 0.2s ease-in-out, height 0.2s ease-in-out",
+            }}
+          >
+            <div
+              className="faq-answer"
+              style={{
+                padding: "0.875rem 1rem",
+                borderRadius: "8px",
+                border: "1px solid #e5e7eb",
+                backgroundColor: "#f9fafb",
+                fontSize: "0.9375rem",
+                lineHeight: 1.5,
+                color: "#374151",
+              }}
+            >
+              {item.answer}
+            </div>
+          </div>
         </div>
-      </div>
+      </button>
     </div>
   );
 };
