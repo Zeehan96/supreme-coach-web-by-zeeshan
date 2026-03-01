@@ -1818,7 +1818,7 @@ const SectionModals = () => {
                       </svg>
                     </div>
                     <div className="long-testimonial-text " >
-                      Passionfroot really helped us level up our creator program
+                      Supreme Coach really helped us level up our creator program
                       into a strong growth channel. Instead of scouring the
                       internet, their AI search enabled us to find and book the
                       best creators in PLG.
